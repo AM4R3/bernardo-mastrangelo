@@ -306,7 +306,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 @media (min-width:720px){
   .score__grid{grid-template-columns:repeat(2,1fr);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
   .score__item{flex-direction:column;align-items:flex-start;gap:18px;border-bottom:0;padding:clamp(28px,3.6vw,40px) clamp(22px,3vw,32px)}
-  .score__item:nth-child(-n+2){border-bottom:1px solid var(--linha)}
+  .score__item:nth-child(-n+4){border-bottom:1px solid var(--linha)}
   .score__item:nth-child(2n){border-left:1px solid var(--linha)}
   .score__item:nth-child(2n+1){padding-left:0}
   .level__list{columns:2;column-gap:40px;border-top:0}
@@ -318,8 +318,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 }
 @media (min-width:1080px){
   /* quatro conquistas lado a lado */
-  .score__grid{grid-template-columns:repeat(4,1fr)}
-  .score__item:nth-child(-n+2){border-bottom:0}
+  .score__grid{grid-template-columns:repeat(5,1fr)}
+  .score__item:nth-child(-n+4){border-bottom:0}
   .score__item:nth-child(n){border-left:1px solid var(--linha);padding-left:clamp(20px,2.4vw,28px)}
   .score__item:first-child{border-left:0;padding-left:0}
 }
@@ -413,11 +413,15 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <p class="score__label" data-i18n-html="score3"><b>Campeão de OPEN’s</b>IBJJF</p>
       </div>
       <div class="score__item rv" style="--d:240ms">
+        <div class="score__num score__num--palavra" data-i18n="score4Word">ADCC</div>
+        <p class="score__label" data-i18n-html="score4"><b>Trials 2026</b>Rio de Janeiro</p>
+      </div>
+      <div class="score__item rv" style="--d:320ms">
         <div class="score__num score__num--musgo" data-count="9" data-suffix="s">9s</div>
-        <p class="score__label" data-i18n-html="score4"><b>Finalização mais rápida</b>ADCC Trials da América do Sul</p>
+        <p class="score__label" data-i18n-html="score5"><b>Finalização mais rápida</b>ADCC Trials da América do Sul</p>
       </div>
     </div>
-    <p class="score__foot rv" style="--d:320ms" data-i18n-html="scoreFoot">
+    <p class="score__foot rv" style="--d:400ms" data-i18n-html="scoreFoot">
       
       No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.
     </p>
@@ -679,7 +683,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroCta:"Agendar pelo WhatsApp",
       score1Word:"Campeão", score1:"<b>Brasileiro IBJJF</b>2026", score2Word:"Campeão", score2:"<b>Mundial IBJJF Juvenil</b>2019",
       score3Word:"Múltiplo", score3:"<b>Campeão de OPEN’s</b>IBJJF",
-      score4:"<b>Finalização mais rápida</b>ADCC Trials da América do Sul",
+      score4Word:"ADCC", score4:"<b>Trials 2026</b>Rio de Janeiro",
+      score5:"<b>Finalização mais rápida</b>ADCC Trials da América do Sul",
       scoreFoot:'No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário",
       bandCap:"Competição · disputa de guarda no tatame",
@@ -744,7 +749,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroCta:"Book via WhatsApp",
       score1Word:"Champion", score1:"<b>Brazilian National IBJJF</b>2026", score2Word:"Champion", score2:"<b>IBJJF Juvenile World</b>2019",
       score3Word:"Multiple", score3:"<b>IBJJF OPEN’s champion</b>",
-      score4:"<b>Fastest submission</b>ADCC South America Trials",
+      score4Word:"ADCC", score4:"<b>Trials 2026</b>Rio de Janeiro",
+      score5:"<b>Fastest submission</b>ADCC South America Trials",
       scoreFoot:'No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro. Sponsored athlete <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo playing guard in competition, controlling his opponent's leg",
       bandCap:"Competition · playing guard on the mat",
@@ -809,7 +815,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroCta:"Agendar por WhatsApp",
       score1Word:"Campeón", score1:"<b>Brasileño IBJJF</b>2026", score2Word:"Campeón", score2:"<b>Mundial IBJJF Juvenil</b>2019",
       score3Word:"Múltiple", score3:"<b>Campeón de OPEN’s</b>IBJJF",
-      score4:"<b>Sumisión más rápida</b>ADCC Trials de Sudamérica",
+      score4Word:"ADCC", score4:"<b>Trials 2026</b>Río de Janeiro",
+      score5:"<b>Sumisión más rápida</b>ADCC Trials de Sudamérica",
       scoreFoot:'No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo jugando la guardia en competición, controlando la pierna del rival",
       bandCap:"Competición · disputa de guardia en el tatami",
