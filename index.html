@@ -153,20 +153,20 @@ section{position:relative}
 .pkgs{background:var(--grafite);padding:clamp(64px,12vw,120px) 0}
 .pkgs h2{font-size:var(--fs-h2);margin-bottom:clamp(34px,6vw,52px);max-width:16ch}
 .pkgs__grid{display:grid;gap:16px}
-.pkg{position:relative;background:var(--preto-tatame);border:1px solid var(--linha);padding:clamp(26px,5.5vw,34px)}
-.pkg__tier{color:var(--cinza-aco);margin-bottom:1.4em}
-.pkg__price{display:flex;align-items:baseline;gap:.4em;margin-bottom:.5em}
-.pkg__price b{font-family:Archivo,sans-serif;font-weight:900;font-stretch:82%;font-size:clamp(2.4rem,9vw,3.2rem);line-height:.85;letter-spacing:-.03em}
-.pkg__price i{font-style:normal;color:var(--cinza-aco);font-size:.86rem}
-.pkg__total{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.08em;color:var(--branco-kimono);text-transform:uppercase;margin-bottom:1.1em}
-.pkg__note{color:var(--cinza-aco);font-size:.92rem;max-width:26ch}
+.pkg{position:relative;background:var(--preto-tatame);border:1px solid var(--linha);padding:clamp(26px,5.5vw,34px);display:flex;flex-direction:column}
+.pkg__tier{color:var(--cinza-aco);margin-bottom:1.3em}
+.pkg__title{font-family:Archivo,sans-serif;font-weight:900;font-stretch:82%;text-transform:uppercase;font-size:clamp(1.9rem,7.4vw,2.5rem);line-height:.88;letter-spacing:-.03em;margin-bottom:.5em}
+.pkg__note{color:var(--cinza-aco);font-size:.92rem;max-width:26ch;margin-bottom:clamp(22px,4.5vw,28px)}
+.pkg__cta{margin-top:auto}
+.pkg .btn{width:100%;padding:1.05em 1.1em;font-size:.84rem;letter-spacing:.05em}
+.pkgs__note{margin-top:clamp(24px,4.5vw,32px);color:var(--cinza-aco);font-size:.9rem;max-width:46ch}
+.pkgs__note b{color:var(--branco-kimono);font-weight:500}
 .pkg--featured{border-color:rgba(212,167,44,.28);padding-top:clamp(34px,6.5vw,44px);padding-bottom:clamp(34px,6.5vw,44px)}
 .pkg--featured::after{content:"";position:absolute;inset:0;border:1.5px solid var(--ouro-podio);pointer-events:none;clip-path:inset(0 0 100% 0);transition:clip-path .5s var(--ease) .28s}
 .pkg--featured.is-in::after{clip-path:inset(0 0 0 0)}
 .pkg__tag{position:absolute;top:0;left:clamp(26px,5.5vw,34px);transform:translateY(-50%);background:var(--ouro-podio);color:#101114;font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.5em .8em;line-height:1}
 .pkgs__scarcity{margin-top:clamp(26px,5vw,34px);color:var(--cinza-aco);font-size:.88rem;display:flex;gap:.7em;align-items:baseline}
 .pkgs__scarcity::before{content:"";width:6px;height:6px;background:var(--ouro-podio);flex:0 0 auto;transform:translateY(-2px)}
-.pkgs__cta{margin-top:clamp(28px,5vw,36px)}
 
 /* ---------- DEPOIMENTOS (oculto) ---------- */
 .quotes{display:none;padding:clamp(64px,12vw,120px) 0}
@@ -246,7 +246,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   .score__item+.score__item{border-left:1px solid var(--linha);padding-left:clamp(22px,3vw,34px)}
   .level__list{columns:2;column-gap:40px;border-top:0}
   .level__list li{break-inside:avoid;border-top:1px solid var(--linha);border-bottom:0}
-  .pkgs__grid{grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+  .pkgs__grid{grid-template-columns:repeat(3,1fr);gap:20px}
   .pkg--featured{transform:translateY(-14px)}
   .final__meta{grid-template-columns:1fr 1fr;align-items:end}
   .en__specs{max-width:420px}
@@ -388,35 +388,41 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 <!-- ====================== PACOTES ====================== -->
 <section class="pkgs" id="pacotes">
   <div class="wrap">
-    <p class="mono sec__eyebrow rv">Investimento</p>
+    <p class="mono sec__eyebrow rv">Como funciona</p>
     <h2 class="rv" style="--d:60ms">Escolha o ritmo.</h2>
 
     <div class="pkgs__grid">
       <article class="pkg rv">
         <p class="mono pkg__tier">Aula avulsa</p>
-        <p class="pkg__price"><b>R$ 450</b><i>/aula</i></p>
-        <p class="pkg__note">Uma aula, sem compromisso de pacote.</p>
+        <p class="pkg__title">Uma aula</p>
+        <p class="pkg__note">Sem compromisso de pacote. Pra sentir o trabalho de perto.</p>
+        <div class="pkg__cta">
+          <a class="btn btn--ghost js-wa" href="https://ig.me/m/bernardomastrangelo" data-msg="avulsa">Falar com o Bernardo <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
       </article>
 
       <article class="pkg pkg--featured rv" style="--d:180ms">
         <span class="pkg__tag">Mais escolhido</span>
-        <p class="mono pkg__tier">Pacote 3 aulas</p>
-        <p class="pkg__price"><b>R$ 400</b><i>/aula</i></p>
-        <p class="pkg__total">Total R$ 1.200</p>
+        <p class="mono pkg__tier">Pacote</p>
+        <p class="pkg__title">3 aulas</p>
         <p class="pkg__note">Tempo suficiente pra corrigir o que trava o seu jogo.</p>
+        <div class="pkg__cta">
+          <a class="btn btn--gold js-wa" href="https://ig.me/m/bernardomastrangelo" data-msg="p3">Falar com o Bernardo <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
       </article>
 
       <article class="pkg rv" style="--d:90ms">
-        <p class="mono pkg__tier">Pacote 6+ aulas</p>
-        <p class="pkg__price"><b>R$ 350</b><i>/aula</i></p>
-        <p class="pkg__note">Pra quem quer evolução de verdade.</p>
+        <p class="mono pkg__tier">Pacote</p>
+        <p class="pkg__title">6+ aulas</p>
+        <p class="pkg__note">Pra quem quer evolução de verdade, com continuidade.</p>
+        <div class="pkg__cta">
+          <a class="btn btn--ghost js-wa" href="https://ig.me/m/bernardomastrangelo" data-msg="p6">Falar com o Bernardo <span class="btn__arrow" aria-hidden="true">→</span></a>
+        </div>
       </article>
     </div>
 
     <p class="pkgs__scarcity rv">Agenda limitada — atleta em temporada de competição.</p>
-    <div class="pkgs__cta rv" style="--d:80ms">
-      <a class="btn btn--gold js-wa" href="https://ig.me/m/bernardomastrangelo" data-msg="pt">Garantir meu horário <span class="btn__arrow" aria-hidden="true">→</span></a>
-    </div>
+    <p class="pkgs__note rv" style="--d:80ms"><b>O valor é combinado direto com o Bernardo.</b> Varia conforme o formato, o local do treino e a frequência — chama no WhatsApp e ele te passa na hora.</p>
   </div>
 </section>
 
@@ -449,10 +455,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     </p>
     <ul class="en__specs rv" style="--d:160ms">
       <li>Classes <b>Private Gi &amp; No-Gi</b></li>
+      <li>Format <b>Single class or packages</b></li>
       <li>Levels <b>All levels welcome</b></li>
       <li>Language <b>English spoken</b></li>
       <li>Location <b>Rio de Janeiro · Team Nova União</b></li>
-      <li>Rate <b>R$450 / class · packages available</b></li>
+      <li>Rates <b>On request — message Bernardo</b></li>
     </ul>
     <a class="btn btn--gold js-wa rv" href="https://ig.me/m/bernardomastrangelo" data-msg="en" style="--d:200ms">Book via WhatsApp <span class="btn__arrow" aria-hidden="true">→</span></a>
     <figure class="en__media rv" style="--d:240ms;margin-top:clamp(30px,5vw,38px)">
@@ -494,7 +501,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
 <!-- ====================== STICKY MOBILE ====================== -->
 <div class="sticky" id="sticky">
-  <a class="js-wa" href="https://ig.me/m/bernardomastrangelo" data-msg="pt">Agendar <span>R$ 450/aula</span></a>
+  <a class="js-wa" href="https://ig.me/m/bernardomastrangelo" data-msg="pt">Falar com o Bernardo <span>WhatsApp</span></a>
 </div>
 
 <script type="application/ld+json">
@@ -525,11 +532,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       "areaServed":{"@type":"City","name":"Rio de Janeiro"},
       "audience":{"@type":"Audience","audienceType":"Praticantes de jiu-jitsu de todos os níveis, incluindo visitantes internacionais"},
       "availableLanguage":["pt-BR","en"],
-      "offers":[
-        {"@type":"Offer","name":"Aula avulsa","price":"450","priceCurrency":"BRL"},
-        {"@type":"Offer","name":"Pacote 3 aulas","price":"1200","priceCurrency":"BRL","description":"R$ 400 por aula"},
-        {"@type":"Offer","name":"Pacote 6+ aulas","price":"350","priceCurrency":"BRL","description":"R$ 350 por aula"}
-      ]
+      "termsOfService":"Valores combinados diretamente com o atleta pelo WhatsApp."
     }
   ]
 }
@@ -545,8 +548,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
      continuam caindo no Direct do Instagram, que já está no href do HTML. */
   var WA_NUMBER = null;
   var MSG = {
-    pt:"Fala, Bernardo! Vi sua página e quero agendar uma aula particular. Pode me passar os horários?",
-    en:"Hey Bernardo! I'm visiting Rio and want to book a private class. What's your availability?"
+    pt:"Fala, Bernardo! Vi sua página e quero agendar uma aula particular. Pode me passar os horários e o valor?",
+    avulsa:"Fala, Bernardo! Vi sua página e quero fechar uma aula particular avulsa. Como funciona, quais horários você tem e qual o valor?",
+    p3:"Fala, Bernardo! Vi sua página e quero fechar o pacote de 3 aulas particulares. Como funciona, quais horários você tem e qual o valor?",
+    p6:"Fala, Bernardo! Vi sua página e quero fechar um pacote de 6 aulas ou mais. Como funciona, quais horários você tem e qual o valor?",
+    en:"Hey Bernardo! I'm visiting Rio and want to book a private class. What's your availability and how much is it?"
   };
 
   /* UTM-ready: se o anúncio trouxer parâmetros de campanha na URL da página,
@@ -564,7 +570,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   if(WA_NUMBER){
     var tag = refTag();
     [].forEach.call(document.querySelectorAll(".js-wa"), function(a){
-      var msg = MSG[a.getAttribute("data-msg") === "en" ? "en" : "pt"] + tag;
+      var msg = (MSG[a.getAttribute("data-msg")] || MSG.pt) + tag;
       a.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
       a.target = "_blank";
       a.rel = "noopener";
