@@ -151,14 +151,31 @@ section{position:relative}
 .score__foot a:hover{border-bottom-color:var(--tinta)}
 
 /* ---------- VIDEO ----------
-   preload=none + poster: o arquivo so baixa quando a pessoa aperta play */
+   Roda sozinho, mudo e em loop. O unico controle e o som.
+   O arquivo so e buscado quando o bloco entra na tela: sem isso os
+   12,7 MB desceriam no carregamento. */
 .video{margin:0;line-height:0}
+.video__box{position:relative;line-height:0}
 .video video{width:100%;height:auto;display:block;background:var(--papel-2);border:1px solid var(--linha)}
 .video figcaption{color:var(--tinta-2);line-height:1.6;margin-top:clamp(10px,2vw,14px)}
+.video__som{
+  position:absolute;right:12px;bottom:12px;z-index:2;
+  width:42px;height:42px;border-radius:50%;padding:0;cursor:pointer;
+  display:grid;place-items:center;color:var(--musgo);
+  background:rgba(250,250,248,.92);border:1px solid var(--linha);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:background-color .2s var(--ease),transform .2s var(--ease);
+}
+.video__som:hover{background:var(--papel);transform:scale(1.06)}
+.video__som svg{width:20px;height:20px}
+.video__som .ligado{display:none}
+.video__som[aria-pressed="true"] .mudo{display:none}
+.video__som[aria-pressed="true"] .ligado{display:block}
 .filme{padding:clamp(48px,9vw,86px) 0 clamp(10px,2vw,16px)}
-.filme__quadro{max-width:760px}
+.filme__quadro{max-width:760px;margin-left:auto;margin-right:auto}
 .level__media video{width:100%;height:auto;display:block;background:var(--papel-2)}
-.level__media--alto{max-width:300px}
+/* o clipe vertical fica centrado na coluna */
+.level__media.level__media--alto{max-width:300px;width:100%;margin-left:auto;margin-right:auto}
 
 /* ---------- DROP ASSINADO ---------- */
 .drop{padding:0 0 clamp(52px,9vw,84px)}
@@ -418,10 +435,12 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   <div class="wrap">
     <p class="mono sec__eyebrow rv" data-i18n="filmeEyebrow">Em vídeo</p>
     <figure class="video filme__quadro rv" style="--d:60ms">
-      <video controls playsinline preload="none" poster="/img/poster-filme.jpg"
-             width="1280" height="720" data-i18n-aria="filmeAria" aria-label="Filme sobre Bernardo Mastrangelo">
-        <source src="/video/filme.mp4" type="video/mp4">
-      </video>
+      <div class="video__box">
+        <video autoplay muted loop playsinline preload="none" poster="/img/poster-filme.jpg"
+               width="1280" height="600" data-src="/video/filme.mp4"
+               data-i18n-aria="filmeAria" aria-label="Filme sobre Bernardo Mastrangelo"></video>
+        <button class="video__som" type="button" aria-pressed="false" aria-label="Ligar o som" data-i18n-aria="somLigar"><svg class="mudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg><svg class="ligado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg></button>
+      </div>
       <figcaption class="mono" data-i18n="filmeCap">Rasta Hale · Pitbull State of Mind · 1min34</figcaption>
     </figure>
   </div>
@@ -453,11 +472,13 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="level__idx" aria-hidden="true">01</div>
         <p class="mono level__belt" data-i18n="lv1Belt">Pra quem está começando · faixa branca e azul</p>
         <h3 data-i18n="lv1H3">Base que acelera anos de tatame.</h3>
-        <figure class="level__media video" style="margin:0 0 clamp(24px,4.5vw,32px)">
-          <video controls playsinline preload="none" poster="/img/poster-aula.jpg"
-                 width="1278" height="720" data-i18n-aria="aulaAria" aria-label="Bernardo Mastrangelo ensinando no tatame">
-            <source src="/video/aula.mp4" type="video/mp4">
-          </video>
+        <figure class="level__media video">
+          <div class="video__box">
+            <video autoplay muted loop playsinline preload="none" poster="/img/poster-aula.jpg"
+                   width="1278" height="720" data-src="/video/aula.mp4"
+                   data-i18n-aria="aulaAria" aria-label="Bernardo Mastrangelo ensinando no tatame"></video>
+            <button class="video__som" type="button" aria-pressed="false" aria-label="Ligar o som" data-i18n-aria="somLigar"><svg class="mudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg><svg class="ligado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg></button>
+          </div>
         </figure>
         <ul class="level__list">
           <li data-n="01" data-i18n="lv1i1">Finalizações básicas</li>
@@ -474,11 +495,13 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="level__idx" aria-hidden="true">02</div>
         <p class="mono level__belt" data-i18n="lv2Belt">Pra quem já compete · faixa roxa, marrom e preta</p>
         <h3 data-i18n="lv2H3">O jogo que pontua em campeonato.</h3>
-        <figure class="level__media level__media--alto video" style="margin:0 0 clamp(24px,4.5vw,32px)">
-          <video controls playsinline preload="none" poster="/img/poster-tecnica.jpg"
-                 width="506" height="900" data-i18n-aria="tecnicaAria" aria-label="Bernardo Mastrangelo aplicando uma queda no tatame">
-            <source src="/video/tecnica.mp4" type="video/mp4">
-          </video>
+        <figure class="level__media level__media--alto video">
+          <div class="video__box">
+            <video autoplay muted loop playsinline preload="none" poster="/img/poster-tecnica.jpg"
+                   width="506" height="900" data-src="/video/tecnica.mp4"
+                   data-i18n-aria="tecnicaAria" aria-label="Bernardo Mastrangelo aplicando uma queda no tatame"></video>
+            <button class="video__som" type="button" aria-pressed="false" aria-label="Ligar o som" data-i18n-aria="somLigar"><svg class="mudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg><svg class="ligado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 8.5a4.5 4.5 0 0 1 0 7M18.5 6a8 8 0 0 1 0 12"/></svg></button>
+          </div>
         </figure>
         <ul class="level__list">
           <li data-n="01" data-i18n="lv2i1">Compass system</li>
@@ -640,6 +663,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
   var DICT = {
     pt:{
+      somLigar:"Ligar o som", somDesligar:"Desligar o som",
       filmeEyebrow:"Em vídeo", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Filme sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo ensinando no tatame", tecnicaAria:"Bernardo Mastrangelo aplicando uma queda no tatame",
       dropRot:"Colab assinada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Ver na loja Rasta Hale ↗", dropAlt:"Arte do drop Pitbull State of Mind, colab da Rasta Hale com Bernardo Mastrangelo",
       htmlLang:"pt-BR",
@@ -703,6 +727,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     en:{
+      somLigar:"Turn sound on", somDesligar:"Turn sound off",
       filmeEyebrow:"On film", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film about Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo teaching on the mat", tecnicaAria:"Bernardo Mastrangelo hitting a takedown on the mat",
       dropRot:"Signature collab", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"See it at the Rasta Hale store ↗", dropAlt:"Artwork of the Pitbull State of Mind drop, a Rasta Hale collab with Bernardo Mastrangelo",
       htmlLang:"en",
@@ -766,6 +791,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     es:{
+      somLigar:"Activar el sonido", somDesligar:"Silenciar",
       filmeEyebrow:"En video", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo enseñando en el tatami", tecnicaAria:"Bernardo Mastrangelo aplicando un derribo en el tatami",
       dropRot:"Colab firmada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Verlo en la tienda Rasta Hale ↗", dropAlt:"Arte del drop Pitbull State of Mind, colab de Rasta Hale con Bernardo Mastrangelo",
       htmlLang:"es",
@@ -841,6 +867,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   }
 
   var metaEl = document.querySelector('meta[name="description"]');
+  var MSG_SOM = { ligar:'Ligar o som', desligar:'Desligar o som' };
 
   function apply(lang){
     var d = DICT[lang] || DICT.pt;
@@ -860,6 +887,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       var v = d[el.getAttribute("data-i18n-alt")];
       if(v != null) el.alt = v;
     });
+    MSG_SOM.ligar = d.somLigar; MSG_SOM.desligar = d.somDesligar;
     document.querySelectorAll("[data-i18n-aria]").forEach(function(el){
       var v = d[el.getAttribute("data-i18n-aria")];
       if(v != null) el.setAttribute("aria-label", v);
@@ -939,6 +967,62 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     }
     requestAnimationFrame(step);
   }
+
+  /* ---------- VIDEOS ----------
+     Busca o arquivo so quando o bloco aparece, e pausa quando sai da
+     tela. Com prefers-reduced-motion nao roda sozinho: devolve os
+     controles nativos pra pessoa decidir. */
+  (function(){
+    var caixas = [].slice.call(document.querySelectorAll(".video__box"));
+    if(!caixas.length) return;
+    var todos = caixas.map(function(c){ return c.querySelector("video"); });
+
+    if(reduced){
+      todos.forEach(function(v){
+        v.autoplay = false; v.controls = true; v.preload = "metadata";
+        if(v.dataset.src) v.src = v.dataset.src;
+      });
+      caixas.forEach(function(c){ var b=c.querySelector(".video__som"); if(b) b.remove(); });
+      return;
+    }
+
+    function liga(v){
+      if(!v.src && v.dataset.src) v.src = v.dataset.src;
+      var p = v.play();
+      if(p && p.catch) p.catch(function(){});
+    }
+
+    if("IntersectionObserver" in window){
+      var io2 = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting) liga(e.target); else e.target.pause();
+        });
+      },{ threshold:0.35 });
+      todos.forEach(function(v){ io2.observe(v); });
+    }else{
+      todos.forEach(liga);
+    }
+
+    caixas.forEach(function(c){
+      var v = c.querySelector("video"), b = c.querySelector(".video__som");
+      if(!b) return;
+      b.addEventListener("click", function(){
+        var ligando = v.muted;
+        /* som de um video so: liga este e cala os outros */
+        todos.forEach(function(o){
+          o.muted = true;
+          var ob = o.parentNode.querySelector(".video__som");
+          if(ob){ ob.setAttribute("aria-pressed","false"); ob.setAttribute("aria-label", MSG_SOM.ligar); }
+        });
+        if(ligando){
+          v.muted = false;
+          liga(v);
+          b.setAttribute("aria-pressed","true");
+          b.setAttribute("aria-label", MSG_SOM.desligar);
+        }
+      });
+    });
+  })();
 
   /* ---------- NAV + BARRA STICKY ---------- */
   var nav = document.getElementById("nav");
