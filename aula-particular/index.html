@@ -184,9 +184,9 @@ section{position:relative}
 .pkg__cta{margin-top:auto}
 .pkg .btn{width:100%;padding:1.1em .7em;font-size:.78rem;letter-spacing:.04em;line-height:1.15;text-align:center}
 .pkg--featured{border-color:rgba(51,66,42,.6);padding-top:clamp(34px,6.5vw,44px);padding-bottom:clamp(34px,6.5vw,44px)}
-.pkg--featured::after{content:"";position:absolute;inset:0;border:1.5px solid var(--musgo);pointer-events:none;clip-path:inset(0 0 100% 0);transition:clip-path .5s var(--ease) .28s}
+.pkg--featured::after{content:"";position:absolute;inset:0;z-index:1;border:1.5px solid var(--musgo);pointer-events:none;clip-path:inset(0 0 100% 0);transition:clip-path .5s var(--ease) .28s}
 .pkg--featured.is-in::after{clip-path:inset(0 0 0 0)}
-.pkg__tag{position:absolute;top:0;left:clamp(26px,5.5vw,34px);transform:translateY(-50%);background:var(--musgo);color:#FAFAF8;font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.62em .72em .58em .86em;line-height:1.2;white-space:nowrap}
+.pkg__tag{position:absolute;z-index:2;top:0;left:clamp(26px,5.5vw,34px);transform:translateY(-50%);background:var(--musgo);color:#FAFAF8;font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.62em .72em .58em .86em;line-height:1.2;white-space:nowrap}
 .pkgs__scarcity{margin-top:clamp(26px,5vw,34px);color:var(--tinta-2);font-size:.88rem;display:flex;gap:.7em;align-items:baseline}
 .pkgs__scarcity::before{content:"";width:6px;height:6px;background:var(--musgo);flex:0 0 auto;transform:translateY(-2px)}
 
@@ -361,8 +361,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       </div>
     </div>
     <p class="score__foot rv" style="--d:240ms" data-i18n-html="scoreFoot">
-      No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro.<br>
-      Atleta patrocinado <b class="hl">Rastahale</b>, colab
+      <b class="hl">Campeão Mundial IBJJF Juvenil 2019</b>. Múltiplo campeão de Opens da IBJJF.<br>
+      No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rastahale</b>, colab
       <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>
     </p>
   </div>
@@ -464,7 +464,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     </div>
 
     <p class="pkgs__scarcity rv" data-i18n="pkgsScarcity">Agenda limitada. Atleta em temporada de competição.</p>
-    <p class="pkgs__note rv" style="--d:80ms" data-i18n-html="pkgsNote"><b>O valor é combinado direto com o Bernardo.</b> Varia conforme o formato, o local do treino e a frequência. Chama no WhatsApp que ele te passa na hora.</p>
+    <p class="pkgs__note rv" style="--d:80ms" data-i18n-html="pkgsNote"><b>O valor é combinado direto com o Bernardo.</b> Varia conforme o formato, o local do treino e a frequência. Entre em contato que ele te passa na hora.</p>
   </div>
 </section>
 
@@ -545,7 +545,9 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       "award":[
         "Campeão Brasileiro IBJJF 2026",
         "Pódio no ADCC Trials 2026",
-        "Finalização mais rápida do ADCC Trials da América do Sul, em 9 segundos"
+        "Finalização mais rápida do ADCC Trials da América do Sul, em 9 segundos",
+        "Campeão Mundial IBJJF Juvenil 2019",
+        "Múltiplo campeão de Opens da IBJJF"
       ],
       "address":{"@type":"PostalAddress","addressLocality":"Rio de Janeiro","addressRegion":"RJ","addressCountry":"BR"}
     },
@@ -556,7 +558,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       "provider":{"@id":"https://bernardomastrangelo.site/#bernardo"},
       "areaServed":{"@type":"City","name":"Rio de Janeiro"},
       "availableLanguage":["pt-BR","en","es"],
-      "termsOfService":"Valores combinados diretamente com o atleta pelo WhatsApp."
+      "termsOfService":"Valores combinados diretamente com o atleta."
     }
   ]
 }
@@ -582,7 +584,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       score1:"<b>Campeão Brasileiro</b>IBJJF 2026",
       score2Word:"Pódio", score2:"<b>ADCC Trials</b>2026",
       score3:"<b>Finalização mais rápida</b>ADCC Trials da América do Sul",
-      scoreFoot:'No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro.<br>Atleta patrocinado <b class="hl">Rastahale</b>, colab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
+      scoreFoot:'<b class="hl">Campeão Mundial IBJJF Juvenil 2019</b>. Múltiplo campeão de Opens da IBJJF.<br>No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rastahale</b>, colab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
       bandAlt:"Bernardo Mastrangelo de braços erguidos comemorando com a equipe no ADCC Trials do Rio",
       bandCap:"ADCC Trials · Rio de Janeiro · comemoração com a equipe",
       levelsEyebrow:"O que a gente treina",
@@ -605,16 +607,16 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       pkg2Tier:"Pacote", pkg2Title:"3 aulas", pkg2Note:"Tempo suficiente pra corrigir o que trava o seu jogo.",
       pkg3Tier:"Pacote", pkg3Title:"6+ aulas", pkg3Note:"Pra quem quer evolução de verdade, com continuidade.",
       pkgsScarcity:"Agenda limitada. Atleta em temporada de competição.",
-      pkgsNote:"<b>O valor é combinado direto com o Bernardo.</b> Varia conforme o formato, o local do treino e a frequência. Chama no WhatsApp que ele te passa na hora.",
+      pkgsNote:"<b>O valor é combinado direto com o Bernardo.</b> Varia conforme o formato, o local do treino e a frequência. Entre em contato que ele te passa na hora.",
       specsEyebrow:"Ficha técnica",
       specsH2:"Como a aula acontece.",
-      specsBody:"<strong>Campeão Brasileiro IBJJF 2026.</strong> Pódio no ADCC Trials 2026. Finalização mais rápida do ADCC Trials da América do Sul, em <strong>9 segundos.</strong>",
+      specsBody:"<strong>Campeão Brasileiro IBJJF 2026</strong> e <strong>Campeão Mundial IBJJF Juvenil 2019</strong>. Pódio no ADCC Trials 2026 e múltiplo campeão de Opens da IBJJF. Finalização mais rápida do ADCC Trials da América do Sul, em <strong>9 segundos.</strong>",
       specK1:"Aulas", specV1:"Particular, Gi & No-Gi",
       specK2:"Formato", specV2:"Avulsa ou pacote",
       specK3:"Níveis", specV3:"Todos os níveis",
       specK4:"Idiomas", specV4:"Português, inglês e espanhol",
       specK5:"Local", specV5:"Rio de Janeiro · Team Nova União",
-      specK6:"Valores", specV6:"Combinado no WhatsApp",
+      specK6:"Valores", specV6:"Combinado direto com ele",
       specsCta:"Agendar pelo WhatsApp",
       adccAlt:"Bernardo Mastrangelo de braços abertos comemorando no ADCC Trials do Rio",
       finalH2:"O tatame tá marcado. <em>Só falta você.</em>",
@@ -645,7 +647,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       score1:"<b>Brazilian National Champion</b>IBJJF 2026",
       score2Word:"Podium", score2:"<b>ADCC Trials</b>2026",
       score3:"<b>Fastest submission</b>ADCC South America Trials",
-      scoreFoot:'No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro.<br>Sponsored athlete <b class="hl">Rastahale</b>, collab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
+      scoreFoot:'<b class="hl">IBJJF Juvenile World Champion 2019</b>. Multiple-time IBJJF Open champion.<br>No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro. Sponsored athlete <b class="hl">Rastahale</b>, collab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
       bandAlt:"Bernardo Mastrangelo with his arms raised celebrating with his team at the ADCC Trials in Rio",
       bandCap:"ADCC Trials · Rio de Janeiro · celebrating with the team",
       levelsEyebrow:"What we train",
@@ -668,16 +670,16 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       pkg2Tier:"Package", pkg2Title:"3 classes", pkg2Note:"Enough time to fix what's holding your game back.",
       pkg3Tier:"Package", pkg3Title:"6+ classes", pkg3Note:"For real progress, with continuity.",
       pkgsScarcity:"Limited availability. Active athlete in competition season.",
-      pkgsNote:"<b>Rates are agreed directly with Bernardo.</b> They depend on the format, the training location and how often you train. Message him on WhatsApp and he'll tell you right away.",
+      pkgsNote:"<b>Rates are agreed directly with Bernardo.</b> They depend on the format, the training location and how often you train. Get in touch and he'll tell you right away.",
       specsEyebrow:"The details",
       specsH2:"How the class works.",
-      specsBody:"<strong>Brazilian National Champion (IBJJF 2026).</strong> Podium at the ADCC Trials 2026. Fastest submission at the ADCC South America Trials, in <strong>9 seconds.</strong>",
+      specsBody:"<strong>Brazilian National Champion (IBJJF 2026)</strong> and <strong>IBJJF Juvenile World Champion 2019</strong>. Podium at the ADCC Trials 2026 and multiple-time IBJJF Open champion. Fastest submission at the ADCC South America Trials, in <strong>9 seconds.</strong>",
       specK1:"Classes", specV1:"Private, Gi & No-Gi",
       specK2:"Format", specV2:"Single class or package",
       specK3:"Levels", specV3:"All levels welcome",
       specK4:"Languages", specV4:"Portuguese, English and Spanish",
       specK5:"Location", specV5:"Rio de Janeiro · Team Nova União",
-      specK6:"Rates", specV6:"Agreed on WhatsApp",
+      specK6:"Rates", specV6:"Agreed directly with him",
       specsCta:"Book via WhatsApp",
       adccAlt:"Bernardo Mastrangelo with his arms wide open celebrating at the ADCC Trials in Rio",
       finalH2:"The mat is booked. <em>You're the missing part.</em>",
@@ -708,7 +710,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       score1:"<b>Campeón Brasileño</b>IBJJF 2026",
       score2Word:"Podio", score2:"<b>ADCC Trials</b>2026",
       score3:"<b>Sumisión más rápida</b>ADCC Trials de Sudamérica",
-      scoreFoot:'No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro.<br>Atleta patrocinado <b class="hl">Rastahale</b>, colab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
+      scoreFoot:'<b class="hl">Campeón Mundial IBJJF Juvenil 2019</b>. Múltiple campeón de Opens de la IBJJF.<br>No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro. Atleta patrocinado <b class="hl">Rastahale</b>, colab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
       bandAlt:"Bernardo Mastrangelo con los brazos en alto festejando con su equipo en el ADCC Trials de Río",
       bandCap:"ADCC Trials · Río de Janeiro · festejo con el equipo",
       levelsEyebrow:"Lo que entrenamos",
@@ -731,16 +733,16 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       pkg2Tier:"Paquete", pkg2Title:"3 clases", pkg2Note:"Tiempo suficiente para corregir lo que traba tu juego.",
       pkg3Tier:"Paquete", pkg3Title:"6+ clases", pkg3Note:"Para quien quiere evolución de verdad, con continuidad.",
       pkgsScarcity:"Agenda limitada. Atleta en temporada de competición.",
-      pkgsNote:"<b>El valor se arregla directo con Bernardo.</b> Varía según el formato, el lugar del entrenamiento y la frecuencia. Escribile por WhatsApp y te lo pasa al momento.",
+      pkgsNote:"<b>El valor se arregla directo con Bernardo.</b> Varía según el formato, el lugar del entrenamiento y la frecuencia. Ponete en contacto y te lo pasa al momento.",
       specsEyebrow:"Ficha técnica",
       specsH2:"Cómo es la clase.",
-      specsBody:"<strong>Campeón Brasileño IBJJF 2026.</strong> Podio en el ADCC Trials 2026. Sumisión más rápida del ADCC Trials de Sudamérica, en <strong>9 segundos.</strong>",
+      specsBody:"<strong>Campeón Brasileño IBJJF 2026</strong> y <strong>Campeón Mundial IBJJF Juvenil 2019</strong>. Podio en el ADCC Trials 2026 y múltiple campeón de Opens de la IBJJF. Sumisión más rápida del ADCC Trials de Sudamérica, en <strong>9 segundos.</strong>",
       specK1:"Clases", specV1:"Particular, Gi y No-Gi",
       specK2:"Formato", specV2:"Suelta o paquete",
       specK3:"Niveles", specV3:"Todos los niveles",
       specK4:"Idiomas", specV4:"Portugués, inglés y español",
       specK5:"Lugar", specV5:"Río de Janeiro · Team Nova União",
-      specK6:"Precios", specV6:"Se arregla por WhatsApp",
+      specK6:"Precios", specV6:"Se arregla directo con él",
       specsCta:"Agendar por WhatsApp",
       adccAlt:"Bernardo Mastrangelo con los brazos abiertos festejando en el ADCC Trials de Río",
       finalH2:"El tatami ya está reservado. <em>Solo faltás vos.</em>",
