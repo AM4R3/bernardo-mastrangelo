@@ -63,14 +63,22 @@ p{margin:0}
 .shell{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;text-align:center}
 
 /* ---------- IDIOMA ---------- */
-.lang{display:flex;gap:2px;border:1px solid var(--linha);padding:2px;margin-bottom:clamp(24px,6vw,38px)}
+.lang{display:flex;align-items:center;gap:2px;border:1px solid var(--linha);padding:3px 4px 3px 8px}
+.lang__globo{width:14px;height:14px;color:var(--cinza-aco);flex:0 0 auto;margin-right:6px}
 .lang button{
-  font-family:"IBM Plex Mono",monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
   background:transparent;color:var(--cinza-aco);border:0;cursor:pointer;
-  padding:.5em .85em;line-height:1;transition:color .25s var(--ease),background-color .25s var(--ease);
+  padding:.42em .5em;line-height:1;transition:color .25s var(--ease),background-color .25s var(--ease);
 }
+.lang .bandeira{width:17px;height:12px;flex:0 0 auto;border-radius:1px;box-shadow:0 0 0 1px rgba(242,240,234,.25);opacity:.62;transition:opacity .25s var(--ease)}
 .lang button:hover{color:var(--branco-kimono)}
+.lang button:hover .bandeira{opacity:1}
 .lang button[aria-pressed="true"]{background:var(--musgo);color:#101114}
+.lang button[aria-pressed="true"] .bandeira{opacity:1;box-shadow:0 0 0 1px rgba(16,17,20,.35)}
+.lang button[aria-pressed="true"]+button .bandeira,.lang button[aria-pressed="true"] ~ button .bandeira{opacity:.62}
+.lang{margin-bottom:clamp(24px,6vw,38px)}
+.lang button{font-size:.66rem;padding:.5em .6em}
 
 /* ---------- IDENTIDADE ---------- */
 .avatar{width:clamp(104px,28vw,128px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid rgba(61,143,69,.7);margin-bottom:clamp(18px,4vw,24px)}
@@ -131,9 +139,10 @@ h1{
 <main class="shell">
 
   <div class="lang rv" role="group" aria-label="Idioma / Language / Idioma">
-    <button type="button" data-lang="pt" aria-pressed="true">PT</button>
-    <button type="button" data-lang="en" aria-pressed="false">EN</button>
-    <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    <svg class="lang__globo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4.1" ry="9"/><path d="M3.6 9h16.8M3.6 15h16.8"/></svg>
+    <button type="button" data-lang="pt" aria-pressed="true" lang="pt-BR" title="Português" aria-label="Português"><svg class="bandeira" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#009B3A"/><path d="M10 1.5 18.4 7 10 12.5 1.6 7Z" fill="#FEDF00"/><circle cx="10" cy="7" r="3" fill="#002776"/></svg><span class="lang__cod">PT</span></button>
+    <button type="button" data-lang="en" aria-pressed="false" lang="en" title="English" aria-label="English"><svg class="bandeira" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#012169"/><path d="M0 0L20 14M20 0L0 14" stroke="#FFF" stroke-width="2.9"/><path d="M0 0L20 14M20 0L0 14" stroke="#C8102E" stroke-width="1.6"/><path d="M10 0V14M0 7H20" stroke="#FFF" stroke-width="4.7"/><path d="M10 0V14M0 7H20" stroke="#C8102E" stroke-width="2.8"/></svg><span class="lang__cod">EN</span></button>
+    <button type="button" data-lang="es" aria-pressed="false" lang="es" title="Español" aria-label="Español"><svg class="bandeira" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" fill="#AA151B"/><rect y="3.5" width="20" height="7" fill="#F1BF00"/></svg><span class="lang__cod">ES</span></button>
   </div>
 
   <div class="avatar rv" style="--d:60ms">
