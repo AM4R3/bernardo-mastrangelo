@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bernardo Mastrangelo — Faixa-preta · Campeão Brasileiro IBJJF 2026</title>
-<meta name="description" content="Bernardo Mastrangelo — faixa-preta de jiu-jitsu, Campeão Brasileiro IBJJF 2026, 3º no ADCC Trials. Aulas particulares no Rio de Janeiro. Private classes in Rio — English and Español.">
+<meta name="description" content="Bernardo Mastrangelo — faixa-preta de jiu-jitsu, Campeão Brasileiro IBJJF 2026, pódio no ADCC Trials. Aulas particulares no Rio de Janeiro. Private classes in Rio — English and Español.">
 <meta name="theme-color" content="#101114">
 <link rel="canonical" href="https://bernardo-mastrangelo.vercel.app/">
 
@@ -23,14 +23,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23101114'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='17' font-weight='900' fill='%23D4A72C' text-anchor='middle'>BM</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23101114'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='17' font-weight='900' fill='%233D8F45' text-anchor='middle'>BM</text></svg>">
 
 <style>
 :root{
   --preto-tatame:#101114;
-  --grafite:#1A1C21;
+  --verde-quartel:#1C4620;
   --branco-kimono:#F2F0EA;
-  --ouro-podio:#D4A72C;
+  --musgo:#3D8F45;
+  --vermelho-carimbo:#E56349;
+  --bronze:#A98B4F;
   --cinza-aco:#8B8E96;
   --linha:rgba(242,240,234,.15);
   --ease:cubic-bezier(.22,1,.36,1);
@@ -48,14 +50,14 @@ body{
 body::before{ /* brilho discreto de arena + textura de tatame */
   content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:
-    radial-gradient(120% 62% at 50% -12%,rgba(212,167,44,.14),transparent 62%),
+    radial-gradient(120% 62% at 50% -12%,rgba(61,143,69,.18),transparent 62%),
     repeating-linear-gradient(90deg,rgba(255,255,255,.02) 0 1px,transparent 1px 8px),
     repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 1px,transparent 1px 8px);
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 p{margin:0}
-:focus-visible{outline:2px solid var(--ouro-podio);outline-offset:3px}
+:focus-visible{outline:2px solid var(--musgo);outline-offset:3px}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;line-height:1.6}
 
 .shell{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;text-align:center}
@@ -68,11 +70,11 @@ p{margin:0}
   padding:.5em .85em;line-height:1;transition:color .25s var(--ease),background-color .25s var(--ease);
 }
 .lang button:hover{color:var(--branco-kimono)}
-.lang button[aria-pressed="true"]{background:var(--ouro-podio);color:#101114}
+.lang button[aria-pressed="true"]{background:var(--musgo);color:#101114}
 
 /* ---------- IDENTIDADE ---------- */
-.avatar{width:clamp(104px,28vw,128px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid rgba(212,167,44,.45);margin-bottom:clamp(18px,4vw,24px)}
-.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar{width:clamp(104px,28vw,128px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:1px solid rgba(61,143,69,.7);margin-bottom:clamp(18px,4vw,24px)}
+.avatar img{width:100%;height:100%;object-fit:cover;filter:saturate(.32) contrast(1.08) brightness(.92)}
 h1{
   font-family:Archivo,"Arial Narrow",Impact,sans-serif;font-weight:900;font-stretch:86%;
   text-transform:uppercase;font-size:clamp(1.65rem,7.4vw,2.2rem);line-height:.95;letter-spacing:-.02em;
@@ -80,7 +82,7 @@ h1{
 }
 .cred{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:.45em;text-wrap:balance}
 .cred-2{color:var(--cinza-aco);max-width:34ch;margin:0 auto}
-.cred-2 b{color:var(--ouro-podio);font-weight:500}
+.cred-2 b{color:var(--musgo);font-weight:500}
 
 /* ---------- SOCIAIS ---------- */
 .social{display:flex;gap:12px;margin:clamp(22px,5vw,30px) 0 clamp(24px,5.5vw,32px)}
@@ -105,11 +107,11 @@ h1{
 .lnk:hover{border-color:var(--branco-kimono);transform:translateY(-2px)}
 .lnk:hover::after{transform:translateX(3px);color:var(--branco-kimono)}
 .lnk--main{
-  background:var(--ouro-podio);color:#101114;border-color:var(--ouro-podio);
+  background:var(--musgo);color:#101114;border-color:var(--musgo);
   min-height:62px;font-size:.98rem;margin-bottom:6px;
 }
 .lnk--main::after{color:rgba(16,17,20,.55)}
-.lnk--main:hover{background:#E4B735;border-color:#E4B735}
+.lnk--main:hover{background:#4AA352;border-color:#4AA352}
 .lnk--main:hover::after{color:#101114}
 
 .foot{margin-top:clamp(30px,7vw,44px);color:var(--cinza-aco);display:flex;flex-direction:column;gap:6px;align-items:center}
@@ -142,7 +144,7 @@ h1{
   <h1 class="rv" style="--d:110ms">Bernardo Mastrangelo</h1>
 
   <p class="cred rv" style="--d:150ms" data-i18n="cred1">Faixa-preta · Campeão Brasileiro IBJJF 2026</p>
-  <p class="mono cred-2 rv" style="--d:190ms" data-i18n-html="cred2">3º ADCC Trials 2026 · finalização mais rápida da América do Sul <b>(9s)</b></p>
+  <p class="mono cred-2 rv" style="--d:190ms" data-i18n-html="cred2">Pódio ADCC Trials 2026 · finalização mais rápida da América do Sul <b>(9s)</b></p>
 
   <nav class="social rv" style="--d:230ms" aria-label="Redes">
     <a href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener"
@@ -162,12 +164,11 @@ h1{
 
   <div class="stack rv" style="--d:270ms">
     <a class="lnk lnk--main js-wa" data-msg="bio" href="https://wa.me/5522997666634" target="_blank" rel="noopener"
-       data-i18n="ctaMain">Chamar no WhatsApp</a>
+       data-i18n="ctaMain">WhatsApp</a>
 
-    <a class="lnk" href="/aula-particular#pacotes" data-i18n="btnPacotes">Pacotes e preços</a>
+    <a class="lnk" href="/aula-particular#pacotes" data-i18n="btnPacotes">Pacotes de aula</a>
     <a class="lnk" href="/aula-particular#curriculo" data-i18n="btnAulas">Como são as aulas</a>
     <a class="lnk" href="/aula-particular#autoridade" data-i18n="btnResultados">Resultados de competição</a>
-    <a class="lnk" href="/aula-particular#depoimentos" data-i18n="btnDepoimentos">Depoimentos de alunos</a>
     <a class="lnk" href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener"
        data-i18n="btnInstagram">@bernardomastrangelo no Instagram</a>
   </div>
@@ -193,7 +194,7 @@ h1{
   "memberOf":{"@type":"SportsTeam","name":"Team Nova União"},
   "award":[
     "Campeão Brasileiro IBJJF 2026",
-    "3º lugar — ADCC Trials 2026",
+    "Pódio — ADCC Trials 2026",
     "Finalização mais rápida do ADCC Trials da América do Sul — 9 segundos"
   ],
   "address":{"@type":"PostalAddress","addressLocality":"Rio de Janeiro","addressRegion":"RJ","addressCountry":"BR"}
@@ -212,14 +213,13 @@ h1{
       htmlLang:"pt-BR",
       avatarAlt:"Bernardo Mastrangelo com a medalha do Campeonato Brasileiro de Jiu-Jitsu 2026",
       cred1:"Faixa-preta · Campeão Brasileiro IBJJF 2026",
-      cred2:"3º ADCC Trials 2026 · finalização mais rápida da América do Sul <b>(9s)</b>",
+      cred2:"Pódio ADCC Trials 2026 · finalização mais rápida da América do Sul <b>(9s)</b>",
       igLabel:"Instagram de Bernardo Mastrangelo",
       waLabel:"Falar com Bernardo no WhatsApp",
-      ctaMain:"Chamar no WhatsApp",
-      btnPacotes:"Pacotes e preços",
+      ctaMain:"WhatsApp",
+      btnPacotes:"Pacotes de aula",
       btnAulas:"Como são as aulas",
       btnResultados:"Resultados de competição",
-      btnDepoimentos:"Depoimentos de alunos",
       btnInstagram:"@bernardomastrangelo no Instagram",
       footLocal:"Rio de Janeiro · Team Nova União",
       footCred:"Site por Baruc Amare",
@@ -233,14 +233,13 @@ h1{
       htmlLang:"en",
       avatarAlt:"Bernardo Mastrangelo holding his 2026 Brazilian National Championship medal",
       cred1:"Black belt · Brazilian National Champion IBJJF 2026",
-      cred2:"3rd ADCC Trials 2026 · fastest submission in South America <b>(9s)</b>",
+      cred2:"Podium ADCC Trials 2026 · fastest submission in South America <b>(9s)</b>",
       igLabel:"Bernardo Mastrangelo on Instagram",
       waLabel:"Message Bernardo on WhatsApp",
-      ctaMain:"Message on WhatsApp",
-      btnPacotes:"Packages and rates",
+      ctaMain:"WhatsApp",
+      btnPacotes:"Class packages",
       btnAulas:"What the classes cover",
       btnResultados:"Competition results",
-      btnDepoimentos:"Student reviews",
       btnInstagram:"@bernardomastrangelo on Instagram",
       footLocal:"Rio de Janeiro · Team Nova União",
       footCred:"Site by Baruc Amare",
@@ -254,14 +253,13 @@ h1{
       htmlLang:"es",
       avatarAlt:"Bernardo Mastrangelo con la medalla del Campeonato Brasileño de Jiu-Jitsu 2026",
       cred1:"Cinturón negro · Campeón Brasileño IBJJF 2026",
-      cred2:"3º ADCC Trials 2026 · sumisión más rápida de Sudamérica <b>(9s)</b>",
+      cred2:"Podio ADCC Trials 2026 · sumisión más rápida de Sudamérica <b>(9s)</b>",
       igLabel:"Instagram de Bernardo Mastrangelo",
       waLabel:"Hablar con Bernardo por WhatsApp",
-      ctaMain:"Escribir por WhatsApp",
-      btnPacotes:"Paquetes y precios",
+      ctaMain:"WhatsApp",
+      btnPacotes:"Paquetes de clase",
       btnAulas:"Cómo son las clases",
       btnResultados:"Resultados de competición",
-      btnDepoimentos:"Opiniones de alumnos",
       btnInstagram:"@bernardomastrangelo en Instagram",
       footLocal:"Río de Janeiro · Team Nova União",
       footCred:"Sitio por Baruc Amare",
