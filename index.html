@@ -15,12 +15,12 @@
 <meta property="og:title" content="Treine com quem compete de verdade — Bernardo Mastrangelo">
 <meta property="og:description" content="Aulas particulares de jiu-jitsu no Rio. Faixa-preta, Campeão Brasileiro IBJJF 2026, finalização mais rápida do ADCC Trials da América do Sul: 9 segundos.">
 <meta property="og:url" content="https://bernardo-mastrangelo.vercel.app/">
-<!-- SUBSTITUIR: subir a foto do pódio como og-image.jpg (1200x630) na raiz do projeto -->
 <meta property="og:image" content="https://bernardo-mastrangelo.vercel.app/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
@@ -97,15 +97,12 @@ section{position:relative}
 /* ---------- HERO ---------- */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;isolation:isolate;padding-top:96px;padding-bottom:clamp(28px,7vw,64px)}
 .hero__media{position:absolute;inset:0;z-index:-2;background:linear-gradient(165deg,#101114,#2A2416 80%)}
-/* SUBSTITUIR: trocar o gradiente pela foto do pódio (braços erguidos na arena), mín 1600px de largura.
-   <img class="hero__img" src="podio.jpg" alt="Bernardo Mastrangelo de braços erguidos no pódio de competição"
-        fetchpriority="high" decoding="async" width="1600" height="1067"> */
 .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2}
 .hero__media::before{ /* textura de tatame, sem request */
   content:"";position:absolute;inset:0;opacity:.5;
   background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.028) 0 1px,transparent 1px 7px),repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 7px);
 }
-.hero__veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(16,17,20,.72) 0%,rgba(16,17,20,.35) 32%,rgba(16,17,20,.88) 74%,var(--preto-tatame) 100%)}
+.hero__veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(16,17,20,.7) 0%,rgba(16,17,20,.26) 24%,rgba(16,17,20,.58) 45%,rgba(16,17,20,.92) 66%,var(--preto-tatame) 100%)}
 .hero__inner{max-width:1240px;margin:0 auto;width:100%;padding:0 var(--pad)}
 .hero__eyebrow{color:var(--ouro-podio);margin-bottom:clamp(18px,4vw,26px)}
 .hero h1{font-size:var(--fs-hero);max-width:15ch;margin-bottom:clamp(18px,3.6vw,26px)}
@@ -223,6 +220,21 @@ section{position:relative}
 .sticky a span{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;opacity:.72}
 body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
+/* ---------- IMAGENS ---------- */
+.hero__img{filter:saturate(.5) contrast(1.06) brightness(.66)}
+.band{position:relative;line-height:0;isolation:isolate}
+.band img{width:100%;height:clamp(380px,92vw,560px);object-fit:cover;object-position:50% 44%;filter:saturate(.6) contrast(1.05) brightness(.8)}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,17,20,.3),rgba(16,17,20,.06) 38%,rgba(16,17,20,.86))}
+.band__cap{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:clamp(16px,3.4vw,26px);color:var(--branco-kimono);line-height:1.6;max-width:44ch}
+.level__media{margin:0 0 clamp(24px,4.5vw,32px);line-height:0}
+.level__media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;filter:saturate(.55) contrast(1.06) brightness(.82)}
+.en__media{margin:clamp(30px,5vw,38px) 0 0;line-height:0;max-width:560px}
+.en__media img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:50% 40%;filter:saturate(.5) contrast(1.05) brightness(.82)}
+.final{isolation:isolate;overflow:hidden}
+.final__bg{position:absolute;inset:0;z-index:-1}
+.final__bg img{width:100%;height:100%;object-fit:cover;object-position:74% 22%;filter:saturate(.28) contrast(1.12) brightness(.4)}
+.final__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(175deg,rgba(26,28,33,.95) 0%,rgba(26,28,33,.84) 45%,rgba(26,28,33,.97) 100%)}
+
 /* ---------- MOVIMENTO ---------- */
 .rv{opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease) var(--d,0ms),transform .5s var(--ease) var(--d,0ms)}
 .rv.is-in{opacity:1;transform:none}
@@ -246,6 +258,17 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   .level{grid-column:1/8}
   .level+.level{grid-column:6/13;margin-top:clamp(64px,7vw,110px)}
   .hero h1{max-width:13ch}
+  .final__bg::after{background:linear-gradient(100deg,var(--grafite) 0%,rgba(26,28,33,.94) 40%,rgba(26,28,33,.55) 100%)}
+}
+@media (min-width:1080px){
+  .hero__img{left:auto;right:0;width:56%;object-position:50% 22%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 36%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 36%)}
+  .hero__veil{background:
+    linear-gradient(90deg,var(--preto-tatame) 20%,rgba(16,17,20,.5) 56%,rgba(16,17,20,.28) 100%),
+    linear-gradient(180deg,rgba(16,17,20,.55) 0,rgba(16,17,20,0) 38%,rgba(16,17,20,.8) 88%,var(--preto-tatame) 100%)}
+  .hero h1{max-width:12ch}
+  .hero__sub{max-width:34ch}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -266,6 +289,9 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 <!-- ====================== HERO ====================== -->
 <header class="hero" id="topo">
   <div class="hero__media" aria-hidden="true"></div>
+  <img class="hero__img" src="img/hero.webp" width="1500" height="1400"
+       alt="Bernardo Mastrangelo com a medalha de ouro do Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026"
+       fetchpriority="high" decoding="async">
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="hero__inner">
     <p class="mono hero__eyebrow rv">Aulas particulares de jiu-jitsu · Gi &amp; No-Gi · Rio de Janeiro</p>
@@ -298,11 +324,16 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     <p class="score__foot rv" style="--d:240ms">
       No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro.<br>
       Atleta patrocinado <b class="hl">Rastahale</b> — colab
-      <a href="https://rastahale.com.br/" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>
-      <!-- VALIDAR: trocar pelo link direto da página do produto na loja da Rastahale -->
+      <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>
     </p>
   </div>
 </section>
+
+<figure class="band rv" style="margin:0">
+  <img src="img/podio.webp" width="1080" height="1438" loading="lazy" decoding="async"
+       alt="Bernardo Mastrangelo no degrau de primeiro lugar do pódio do Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026">
+  <figcaption class="mono band__cap">Pódio · Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026 · Faixa preta adulto pluma</figcaption>
+</figure>
 
 <!-- ====================== A AULA POR NÍVEL ====================== -->
 <section class="levels" id="a-aula">
@@ -314,6 +345,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="level__idx" aria-hidden="true">01</div>
         <p class="mono level__belt">Pra quem está começando · faixa branca e azul</p>
         <h3>Base que acelera anos de tatame.</h3>
+        <figure class="level__media" style="margin:0">
+          <img src="img/seminario.webp" width="1000" height="730" loading="lazy" decoding="async"
+               style="object-position:50% 38%"
+               alt="Bernardo Mastrangelo corrigindo a posição de um aluno durante seminário">
+        </figure>
         <ul class="level__list">
           <li data-n="01">Finalizações básicas</li>
           <li data-n="02">Entradas e reações de queda</li>
@@ -329,6 +365,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="level__idx" aria-hidden="true">02</div>
         <p class="mono level__belt">Pra quem já compete · faixa roxa, marrom e preta</p>
         <h3>O jogo que pontua em campeonato.</h3>
+        <figure class="level__media" style="margin:0">
+          <img src="img/arena.webp" width="900" height="1200" loading="lazy" decoding="async"
+               style="object-position:50% 46%"
+               alt="Bernardo Mastrangelo de braços erguidos no tatame do Campeonato Brasileiro IBJJF">
+        </figure>
         <ul class="level__list">
           <li data-n="01">Compass system</li>
           <li data-n="02">Passagem de guarda</li>
@@ -414,11 +455,19 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       <li>Rate <b>R$450 / class · packages available</b></li>
     </ul>
     <a class="btn btn--gold js-wa rv" href="https://ig.me/m/bernardomastrangelo" data-msg="en" style="--d:200ms">Book via WhatsApp <span class="btn__arrow" aria-hidden="true">→</span></a>
+    <figure class="en__media rv" style="--d:240ms;margin-top:clamp(30px,5vw,38px)">
+      <img src="img/campeao.webp" width="1000" height="1333" loading="lazy" decoding="async"
+           style="object-position:50% 30%"
+           alt="Bernardo Mastrangelo holding his gold medal at the 2026 Brazilian National No-Gi Championship">
+    </figure>
   </div>
 </section>
 
 <!-- ====================== CTA FINAL ====================== -->
 <section class="final" id="agendar">
+  <div class="final__bg" aria-hidden="true">
+    <img src="img/retrato.webp" width="1080" height="905" loading="lazy" decoding="async" alt="">
+  </div>
   <div class="wrap">
     <h2 class="rv">O tatame tá marcado. <em>Só falta você.</em></h2>
     <div class="final__cta rv" style="--d:100ms">
