@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bernardo Mastrangelo — Faixa-preta · Campeão Brasileiro IBJJF 2026</title>
 <meta name="description" content="Bernardo Mastrangelo — faixa-preta de jiu-jitsu, Campeão Brasileiro IBJJF 2026, pódio no ADCC Trials. Aulas particulares no Rio de Janeiro. Private classes in Rio — English and Español.">
-<meta name="theme-color" content="#101114">
+<meta name="theme-color" content="#000000">
 <link rel="canonical" href="https://bernardo-mastrangelo.vercel.app/">
 
 <meta property="og:type" content="profile">
@@ -23,11 +23,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23101114'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='17' font-weight='900' fill='%233D8F45' text-anchor='middle'>BM</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='17' font-weight='900' fill='%233D8F45' text-anchor='middle'>BM</text></svg>">
 
 <style>
 :root{
-  --preto-tatame:#101114;
+  --preto-tatame:#000000;
   --verde-quartel:#1C4620;
   --branco-kimono:#F2F0EA;
   --musgo:#3D8F45;
@@ -45,14 +45,7 @@ body{
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
   display:flex;flex-direction:column;align-items:center;
   padding:clamp(18px,5vw,32px) 20px clamp(28px,6vw,44px);
-  position:relative;overflow-x:hidden;
-}
-body::before{ /* brilho discreto de arena + textura de tatame */
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(120% 62% at 50% -12%,rgba(61,143,69,.18),transparent 62%),
-    repeating-linear-gradient(90deg,rgba(255,255,255,.02) 0 1px,transparent 1px 8px),
-    repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0 1px,transparent 1px 8px);
+  overflow-x:hidden;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -74,8 +67,8 @@ p{margin:0}
 .lang .bandeira{width:17px;height:12px;flex:0 0 auto;border-radius:1px;box-shadow:0 0 0 1px rgba(242,240,234,.25);opacity:.62;transition:opacity .25s var(--ease)}
 .lang button:hover{color:var(--branco-kimono)}
 .lang button:hover .bandeira{opacity:1}
-.lang button[aria-pressed="true"]{background:var(--musgo);color:#101114}
-.lang button[aria-pressed="true"] .bandeira{opacity:1;box-shadow:0 0 0 1px rgba(16,17,20,.35)}
+.lang button[aria-pressed="true"]{background:var(--musgo);color:#000000}
+.lang button[aria-pressed="true"] .bandeira{opacity:1;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
 .lang button[aria-pressed="true"]+button .bandeira,.lang button[aria-pressed="true"] ~ button .bandeira{opacity:.62}
 .lang{margin-bottom:clamp(24px,6vw,38px)}
 .lang button{font-size:.66rem;padding:.5em .6em}
@@ -115,15 +108,20 @@ h1{
 .lnk:hover{border-color:var(--branco-kimono);transform:translateY(-2px)}
 .lnk:hover::after{transform:translateX(3px);color:var(--branco-kimono)}
 .lnk--main{
-  background:var(--musgo);color:#101114;border-color:var(--musgo);
+  background:var(--musgo);color:#000000;border-color:var(--musgo);
   min-height:62px;font-size:.98rem;margin-bottom:6px;
 }
-.lnk--main::after{color:rgba(16,17,20,.55)}
+.lnk--main::after{color:rgba(0,0,0,.55)}
 .lnk--main:hover{background:#4AA352;border-color:#4AA352}
-.lnk--main:hover::after{color:#101114}
+.lnk--main:hover::after{color:#000000}
 
-.foot{margin-top:clamp(30px,7vw,44px);color:var(--cinza-aco);display:flex;flex-direction:column;gap:6px;align-items:center}
-.foot span{opacity:.75}
+.foot{margin-top:clamp(30px,7vw,44px);color:var(--cinza-aco);display:flex;flex-direction:column;gap:2px;align-items:center}
+.credito{
+  display:inline-block;color:#75777D;text-decoration:none;
+  font-size:.58rem;letter-spacing:.1em;padding:.9em .3em;
+  transition:color .25s var(--ease);
+}
+.credito:hover{color:var(--cinza-aco)}
 
 /* ---------- ENTRADA ---------- */
 .rv{opacity:0;transform:translateY(12px);animation:up .5s var(--ease) forwards;animation-delay:var(--d,0ms)}
@@ -184,8 +182,9 @@ h1{
 
   <footer class="foot mono rv" style="--d:320ms">
     <span data-i18n="footLocal">Rio de Janeiro · Team Nova União</span>
-    <!-- VALIDAR: crédito -->
-    <span data-i18n="footCred">Site por Baruc Amare</span>
+    <a class="credito" href="https://www.instagram.com/baruc.amare/" target="_blank" rel="noopener"
+    title="Falar com Baruc Amare no Instagram"
+    data-i18n="footCred">por Baruc Amare</a>
   </footer>
 
 </main>
@@ -231,7 +230,7 @@ h1{
       btnResultados:"Resultados de competição",
       btnInstagram:"@bernardomastrangelo no Instagram",
       footLocal:"Rio de Janeiro · Team Nova União",
-      footCred:"Site por Baruc Amare",
+      footCred:"por Baruc Amare",
       msg:{
         bio:"Olá Bernardo! Vi seu link na bio e quero marcar uma aula particular. Pode me passar os horários e valores?",
         bioSocial:"Olá Bernardo! Vi seu link na bio e quero saber mais sobre as aulas particulares."
@@ -251,7 +250,7 @@ h1{
       btnResultados:"Competition results",
       btnInstagram:"@bernardomastrangelo on Instagram",
       footLocal:"Rio de Janeiro · Team Nova União",
-      footCred:"Site by Baruc Amare",
+      footCred:"by Baruc Amare",
       msg:{
         bio:"Hi Bernardo! I found your link in bio and I'd like to book a private class. What's your availability and how much is it?",
         bioSocial:"Hi Bernardo! I found your link in bio and I'd like to know more about your private classes."
@@ -271,7 +270,7 @@ h1{
       btnResultados:"Resultados de competición",
       btnInstagram:"@bernardomastrangelo en Instagram",
       footLocal:"Río de Janeiro · Team Nova União",
-      footCred:"Sitio por Baruc Amare",
+      footCred:"por Baruc Amare",
       msg:{
         bio:"¡Hola Bernardo! Vi tu link en la bio y quiero agendar una clase particular. ¿Me pasás los horarios y los valores?",
         bioSocial:"¡Hola Bernardo! Vi tu link en la bio y quiero saber más sobre las clases particulares."
