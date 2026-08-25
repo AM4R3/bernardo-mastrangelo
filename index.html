@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Bernardo Mastrangelo — Faixa-preta · Campeão Brasileiro IBJJF 2026</title>
 <meta name="description" content="Bernardo Mastrangelo — faixa-preta de jiu-jitsu, Campeão Brasileiro IBJJF 2026, pódio no ADCC Trials. Aulas particulares no Rio de Janeiro. Private classes in Rio — English and Español.">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#FAFAF8">
 <link rel="canonical" href="https://bernardomastrangelo.site/">
 
 <meta property="og:locale" content="pt_BR">
@@ -34,20 +34,18 @@
 
 <style>
 :root{
-  --preto-tatame:#000000;
-  --grafite:#141519;
-  --branco-kimono:#F2F0EA;
-  --musgo:#678A47;
-  --vermelho-carimbo:#E56349;
-  --bronze:#A98B4F;
-  --cinza-aco:#8B8E96;
-  --linha:rgba(242,240,234,.15);
+  --papel:#FAFAF8;
+  --papel-2:#F0EEE7;
+  --tinta:#14161A;
+  --musgo:#33422A;
+  --tinta-2:#585C64;
+  --linha:rgba(20,22,26,.14);
   --ease:cubic-bezier(.22,1,.36,1);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;min-height:100svh;background:var(--preto-tatame);color:var(--branco-kimono);
+  margin:0;min-height:100svh;background:var(--papel);color:var(--tinta);
   font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
   display:flex;flex-direction:column;align-items:center;
@@ -64,17 +62,17 @@ p{margin:0}
 
 /* ---------- IDIOMA ---------- */
 .lang{display:flex;align-items:center;gap:2px;border:1px solid var(--linha);padding:3px 4px 3px 8px}
-.lang__globo{width:14px;height:14px;color:var(--cinza-aco);flex:0 0 auto;margin-right:6px}
+.lang__globo{width:14px;height:14px;color:var(--tinta-2);flex:0 0 auto;margin-right:6px}
 .lang button{
   display:inline-flex;align-items:center;gap:6px;
   font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-  background:transparent;color:var(--cinza-aco);border:0;cursor:pointer;
+  background:transparent;color:var(--tinta-2);border:0;cursor:pointer;
   padding:.42em .5em;line-height:1;transition:color .25s var(--ease),background-color .25s var(--ease);
 }
-.lang .bandeira{width:17px;height:12px;flex:0 0 auto;border-radius:1px;box-shadow:0 0 0 1px rgba(242,240,234,.25);opacity:.62;transition:opacity .25s var(--ease)}
-.lang button:hover{color:var(--branco-kimono)}
+.lang .bandeira{width:17px;height:12px;flex:0 0 auto;border-radius:1px;box-shadow:0 0 0 1px rgba(20,22,26,.22);opacity:.62;transition:opacity .25s var(--ease)}
+.lang button:hover{color:var(--tinta)}
 .lang button:hover .bandeira{opacity:1}
-.lang button[aria-pressed="true"]{background:var(--musgo);color:#000000}
+.lang button[aria-pressed="true"]{background:var(--musgo);color:#FAFAF8}
 .lang button[aria-pressed="true"] .bandeira{opacity:1;box-shadow:0 0 0 1px rgba(0,0,0,.35)}
 .lang button[aria-pressed="true"]+button .bandeira,.lang button[aria-pressed="true"] ~ button .bandeira{opacity:.62}
 .lang{margin-bottom:clamp(24px,6vw,38px)}
@@ -84,24 +82,24 @@ p{margin:0}
 .avatar{
   width:clamp(112px,29vw,136px);aspect-ratio:1;border-radius:50%;
   padding:5px;margin-bottom:clamp(18px,4vw,24px);
-  background:#0b0d09 url("/img/tie-avatar.webp") center/cover;
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,.55),0 0 0 1px rgba(103,138,71,.35);
+  background:var(--papel-2) url("/img/tie-avatar.webp") center/cover;
+  box-shadow:inset 0 0 0 1px rgba(250,250,248,.6),0 0 0 1px rgba(51,66,42,.3);
 }
-.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:saturate(.62) contrast(1.12) brightness(1.02)}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;filter:saturate(.95) contrast(1.02)}
 h1{
   font-family:Archivo,"Arial Narrow",Impact,sans-serif;font-weight:900;font-stretch:86%;
   text-transform:uppercase;font-size:clamp(1.65rem,7.4vw,2.2rem);line-height:.95;letter-spacing:-.02em;
   margin:0 0 clamp(12px,3vw,16px);
 }
 .cred{font-size:.95rem;font-weight:500;line-height:1.5;margin-bottom:.45em;text-wrap:balance}
-.cred-2{color:var(--cinza-aco);max-width:34ch;margin:0 auto}
+.cred-2{color:var(--tinta-2);max-width:34ch;margin:0 auto}
 .cred-2 b{color:var(--musgo);font-weight:500}
 
 /* ---------- SOCIAIS ---------- */
 .social{display:flex;gap:12px;margin:clamp(22px,5vw,30px) 0 clamp(24px,5.5vw,32px)}
 .social a{
   width:44px;height:44px;border:1px solid var(--linha);border-radius:50%;
-  display:grid;place-items:center;color:var(--cinza-aco);
+  display:grid;place-items:center;color:var(--tinta-2);
   transition:color .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease);
 }
 .social a:hover{color:var(--musgo);border-color:var(--musgo);transform:translateY(-2px)}
@@ -116,29 +114,24 @@ h1{
   text-transform:uppercase;letter-spacing:.045em;font-size:.86rem;line-height:1.2;
   transition:border-color .25s var(--ease),background-color .25s var(--ease),transform .25s var(--ease);
 }
-.lnk::after{content:"→";position:absolute;right:16px;color:var(--cinza-aco);font-size:1rem;transition:transform .25s var(--ease),color .25s var(--ease)}
+.lnk::after{content:"→";position:absolute;right:16px;color:var(--tinta-2);font-size:1rem;transition:transform .25s var(--ease),color .25s var(--ease)}
 .lnk:hover{border-color:var(--musgo);transform:translateY(-2px)}
 .lnk:hover::after{transform:translateX(3px);color:var(--musgo)}
 .lnk--main{
-  position:relative;isolation:isolate;
-  background:#0b0d09 url("/img/tie-cta.webp") center/cover;
-  color:var(--branco-kimono);border-color:rgba(103,138,71,.55);
+  background:var(--musgo);color:var(--papel);border-color:var(--musgo);
   min-height:62px;font-size:.98rem;margin-bottom:6px;
-  text-shadow:0 1px 6px rgba(0,0,0,.8);
 }
-.lnk--main::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.74),rgba(0,0,0,.6) 50%,rgba(0,0,0,.76));transition:background .25s var(--ease)}
-.lnk--main::after{color:var(--branco-kimono);opacity:.8}
-.lnk--main:hover{border-color:rgba(103,138,71,.85);box-shadow:0 10px 26px rgba(0,0,0,.55)}
-.lnk--main:hover::before{background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.48) 50%,rgba(0,0,0,.64))}
+.lnk--main::after{color:var(--papel);opacity:.75}
+.lnk--main:hover{background:#44562F;border-color:#44562F;box-shadow:0 10px 24px rgba(51,66,42,.28)}
 .lnk--main:hover::after{opacity:1}
 
-.foot{margin-top:clamp(30px,7vw,44px);color:var(--cinza-aco);display:flex;flex-direction:column;gap:2px;align-items:center}
+.foot{margin-top:clamp(30px,7vw,44px);color:var(--tinta-2);display:flex;flex-direction:column;gap:2px;align-items:center}
 .credito{
   display:inline-block;color:#75777D;text-decoration:none;
   font-size:.58rem;letter-spacing:.1em;padding:.9em .3em;
   transition:color .25s var(--ease);
 }
-.credito:hover{color:var(--cinza-aco)}
+.credito:hover{color:var(--tinta-2)}
 
 /* ---------- ENTRADA ---------- */
 .rv{opacity:0;transform:translateY(22px);animation:up .5s var(--ease) forwards;animation-delay:var(--d,0ms)}
