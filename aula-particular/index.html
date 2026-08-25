@@ -117,7 +117,7 @@ section{position:relative}
 /* ---------- HERO ---------- */
 .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;isolation:isolate;padding-top:96px;padding-bottom:clamp(28px,7vw,64px)}
 .hero__media{position:absolute;inset:0;z-index:-2;background:#000000}
-.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2;filter:saturate(.66) contrast(1.14) brightness(.82)}
+.hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:66% 26%;z-index:-2;filter:saturate(.66) contrast(1.14) brightness(.82)}
 .hero__veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.14) 24%,rgba(0,0,0,.5) 44%,rgba(0,0,0,.9) 66%,var(--preto-tatame) 100%)}
 .hero__inner{max-width:1240px;margin:0 auto;width:100%;padding:0 var(--pad)}
 .hero__eyebrow{color:var(--musgo);margin-bottom:clamp(18px,4vw,26px);text-shadow:0 1px 14px rgba(0,0,0,.9),0 0 4px rgba(0,0,0,.7)}
@@ -283,7 +283,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   .final__bg::after{background:linear-gradient(100deg,var(--verde-quartel) 0%,rgba(28,70,32,.94) 40%,rgba(28,70,32,.55) 100%)}
 }
 @media (min-width:1080px){
-  .hero__img{left:auto;right:0;width:56%;object-position:50% 22%;
+  .hero__img{left:auto;right:0;width:56%;object-position:58% 24%;
     -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 36%);
     mask-image:linear-gradient(90deg,transparent 0,#000 36%)}
   .hero__veil{background:
@@ -333,8 +333,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 <!-- ====================== HERO ====================== -->
 <header class="hero" id="topo">
   <div class="hero__media" aria-hidden="true"></div>
-  <img class="hero__img" src="/img/hero.webp" width="1500" height="1400"
-       alt="Bernardo Mastrangelo com a medalha de ouro do Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026"
+  <img class="hero__img" src="/img/hero.webp" width="1700" height="1259"
+       alt="Bernardo Mastrangelo comemorando aos gritos no tatame depois de vencer"
        data-i18n-alt="heroAlt" fetchpriority="high" decoding="async">
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="hero__inner">
@@ -373,7 +373,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 </section>
 
 <figure class="band rv" style="margin:0">
-  <img src="/img/podio.webp" width="1080" height="1438" loading="lazy" decoding="async"
+  <img src="/img/podio.webp" width="1600" height="2133" loading="lazy" decoding="async"
        alt="Bernardo Mastrangelo no degrau de primeiro lugar do pódio do Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026"
        data-i18n-alt="podioAlt">
   <figcaption class="mono band__cap" data-i18n="bandCap">Pódio · Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026 · Faixa preta adulto pluma</figcaption>
@@ -390,10 +390,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <p class="mono level__belt" data-i18n="lv1Belt">Pra quem está começando · faixa branca e azul</p>
         <h3 data-i18n="lv1H3">Base que acelera anos de tatame.</h3>
         <figure class="level__media" style="margin:0">
-          <img src="/img/seminario.webp" width="1000" height="730" loading="lazy" decoding="async"
-               style="object-position:50% 38%"
-               alt="Bernardo Mastrangelo corrigindo a posição de um aluno durante seminário"
-               data-i18n-alt="seminarioAlt">
+          <img src="/img/aula-base.webp" width="1200" height="1800" loading="lazy" decoding="async"
+               style="object-position:50% 42%"
+               alt="Bernardo Mastrangelo treinando uma entrada de perna no tatame"
+               data-i18n-alt="baseAlt">
         </figure>
         <ul class="level__list">
           <li data-n="01" data-i18n="lv1i1">Finalizações básicas</li>
@@ -411,10 +411,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <p class="mono level__belt" data-i18n="lv2Belt">Pra quem já compete · faixa roxa, marrom e preta</p>
         <h3 data-i18n="lv2H3">O jogo que pontua em campeonato.</h3>
         <figure class="level__media" style="margin:0">
-          <img src="/img/arena.webp" width="900" height="1200" loading="lazy" decoding="async"
-               style="object-position:50% 46%"
-               alt="Bernardo Mastrangelo de braços erguidos no tatame do Campeonato Brasileiro IBJJF"
-               data-i18n-alt="arenaAlt">
+          <img src="/img/aula-competicao.webp" width="1200" height="800" loading="lazy" decoding="async"
+               style="object-position:58% 50%"
+               alt="Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário"
+               data-i18n-alt="competicaoAlt">
         </figure>
         <ul class="level__list">
           <li data-n="01" data-i18n="lv2i1">Compass system</li>
@@ -491,9 +491,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     </ul>
     <a class="btn btn--musgo js-wa rv" href="https://wa.me/5522997666634" data-msg="geral" style="--d:200ms"><span data-i18n="specsCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
     <figure class="specs__media rv" style="--d:240ms;margin-top:clamp(30px,5vw,38px)">
-      <img src="/img/grito.webp" width="625" height="390" loading="lazy" decoding="async"
-           alt="Bernardo Mastrangelo comemorando aos gritos no tatame do Campeonato Brasileiro"
-           data-i18n-alt="gritoAlt">
+      <img src="/img/adcc.webp" width="1400" height="933" loading="lazy" decoding="async"
+           style="object-position:50% 32%"
+           alt="Bernardo Mastrangelo de braços abertos comemorando no ADCC Trials do Rio"
+           data-i18n-alt="adccAlt">
     </figure>
   </div>
 </section>
@@ -501,7 +502,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 <!-- ====================== CTA FINAL ====================== -->
 <section class="final" id="agendar">
   <div class="final__bg" aria-hidden="true">
-    <img src="/img/retrato.webp" width="1080" height="905" loading="lazy" decoding="async" alt="">
+    <img src="/img/retrato.webp" width="1400" height="2100" loading="lazy" decoding="async" alt="">
   </div>
   <div class="wrap">
     <h2 class="rv" data-i18n-html="finalH2">O tatame tá marcado. <em>Só falta você.</em></h2>
@@ -578,7 +579,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       title:"Aula Particular de Jiu-Jitsu no Rio — Bernardo Mastrangelo · Campeão Brasileiro IBJJF",
       metaDesc:"Aulas particulares de jiu-jitsu no Rio de Janeiro com Bernardo Mastrangelo — faixa-preta, Campeão Brasileiro IBJJF 2026, pódio no ADCC Trials. Gi & No-Gi, todos os níveis.",
       navCta:"Agendar",
-      heroAlt:"Bernardo Mastrangelo com a medalha de ouro do Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026",
+      heroAlt:"Bernardo Mastrangelo comemorando aos gritos no tatame depois de vencer",
       heroEyebrow:"Aulas particulares de jiu-jitsu · Gi & No-Gi · Rio de Janeiro",
       heroH1:"Treine com quem <em>compete de verdade.</em>",
       heroSub:"Bernardo Mastrangelo — faixa-preta, Campeão Brasileiro IBJJF 2026, No-Gi Coach na Team Nova União.",
@@ -594,12 +595,12 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       lv1H3:"Base que acelera anos de tatame.",
       lv1i1:"Finalizações básicas", lv1i2:"Entradas e reações de queda", lv1i3:"Distribuição de peso",
       lv1i4:"Entradas de guarda", lv1i5:"Finalizações sutis", lv1i6:"Posições de controle", lv1i7:"Consciência corporal",
-      seminarioAlt:"Bernardo Mastrangelo corrigindo a posição de um aluno durante seminário",
+      baseAlt:"Bernardo Mastrangelo treinando uma entrada de perna no tatame",
       lv2Belt:"Pra quem já compete · faixa roxa, marrom e preta",
       lv2H3:"O jogo que pontua em campeonato.",
       lv2i1:"Compass system", lv2i2:"Passagem de guarda", lv2i3:"Conexões em cima",
       lv2i4:"Conexões de queda + controle", lv2i5:"Imanari roll e fundamentos de cross ashi", lv2i6:"Mobilidade e fluidez",
-      arenaAlt:"Bernardo Mastrangelo de braços erguidos no tatame do Campeonato Brasileiro IBJJF",
+      competicaoAlt:"Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário",
       levelsClose:"Gi e No-Gi. <span>A aula é montada pro seu jogo.</span>",
       pkgsEyebrow:"Como funciona",
       pkgsH2:"Escolha o ritmo.",
@@ -620,7 +621,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       specK5:"Local", specV5:"Rio de Janeiro · Team Nova União",
       specK6:"Valores", specV6:"Combinado no WhatsApp",
       specsCta:"Agendar pelo WhatsApp",
-      gritoAlt:"Bernardo Mastrangelo comemorando aos gritos no tatame do Campeonato Brasileiro",
+      adccAlt:"Bernardo Mastrangelo de braços abertos comemorando no ADCC Trials do Rio",
       finalH2:"O tatame tá marcado. <em>Só falta você.</em>",
       finalCta:"Agendar pelo WhatsApp",
       finalLocal:"<b>Rio de Janeiro</b> · Team Nova União",
@@ -641,7 +642,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       title:"Private Jiu-Jitsu Classes in Rio — Bernardo Mastrangelo · Brazilian National Champion",
       metaDesc:"Private jiu-jitsu classes in Rio de Janeiro with Bernardo Mastrangelo — black belt, Brazilian National Champion IBJJF 2026, podium at ADCC Trials. Gi & No-Gi, all levels, English spoken.",
       navCta:"Book",
-      heroAlt:"Bernardo Mastrangelo holding his gold medal from the 2026 Brazilian National No-Gi Championship",
+      heroAlt:"Bernardo Mastrangelo roaring in celebration on the mat after a win",
       heroEyebrow:"Private jiu-jitsu classes · Gi & No-Gi · Rio de Janeiro",
       heroH1:"Train with someone who <em>actually competes.</em>",
       heroSub:"Bernardo Mastrangelo — black belt, Brazilian National Champion IBJJF 2026, No-Gi Coach at Team Nova União. English spoken.",
@@ -657,12 +658,12 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       lv1H3:"The base that saves you years on the mat.",
       lv1i1:"Basic submissions", lv1i2:"Takedown entries and reactions", lv1i3:"Weight distribution",
       lv1i4:"Guard entries", lv1i5:"Subtle submissions", lv1i6:"Control positions", lv1i7:"Body awareness",
-      seminarioAlt:"Bernardo Mastrangelo correcting a student's position during a seminar",
+      baseAlt:"Bernardo Mastrangelo drilling a leg entry on the mat",
       lv2Belt:"For competitors · purple, brown and black belt",
       lv2H3:"The game that scores in competition.",
       lv2i1:"Compass system", lv2i2:"Guard passing", lv2i3:"Top-position connections",
       lv2i4:"Takedown connections + control", lv2i5:"Imanari roll and cross ashi fundamentals", lv2i6:"Mobility and flow",
-      arenaAlt:"Bernardo Mastrangelo with his arms raised on the mat at the Brazilian National Championship",
+      competicaoAlt:"Bernardo Mastrangelo playing guard in competition, controlling his opponent's leg",
       levelsClose:"Gi and No-Gi. <span>The class is built around your game.</span>",
       pkgsEyebrow:"How it works",
       pkgsH2:"Pick your pace.",
@@ -683,7 +684,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       specK5:"Location", specV5:"Rio de Janeiro · Team Nova União",
       specK6:"Rates", specV6:"Agreed on WhatsApp",
       specsCta:"Book via WhatsApp",
-      gritoAlt:"Bernardo Mastrangelo roaring in celebration on the mat at the Brazilian National Championship",
+      adccAlt:"Bernardo Mastrangelo with his arms wide open celebrating at the ADCC Trials in Rio",
       finalH2:"The mat is booked. <em>You're the missing part.</em>",
       finalCta:"Book via WhatsApp",
       finalLocal:"<b>Rio de Janeiro</b> · Team Nova União",
@@ -704,7 +705,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       title:"Clases Particulares de Jiu-Jitsu en Río — Bernardo Mastrangelo · Campeón Brasileño",
       metaDesc:"Clases particulares de jiu-jitsu en Río de Janeiro con Bernardo Mastrangelo — cinturón negro, Campeón Brasileño IBJJF 2026, podio en ADCC Trials. Gi y No-Gi, todos los niveles, se habla español.",
       navCta:"Agendar",
-      heroAlt:"Bernardo Mastrangelo con la medalla de oro del Campeonato Brasileño de Jiu-Jitsu Sin Kimono 2026",
+      heroAlt:"Bernardo Mastrangelo gritando en festejo en el tatami después de ganar",
       heroEyebrow:"Clases particulares de jiu-jitsu · Gi y No-Gi · Río de Janeiro",
       heroH1:"Entrená con quien <em>compite de verdad.</em>",
       heroSub:"Bernardo Mastrangelo — cinturón negro, Campeón Brasileño IBJJF 2026, No-Gi Coach en Team Nova União. Se habla español.",
@@ -720,12 +721,12 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       lv1H3:"La base que te ahorra años de tatami.",
       lv1i1:"Sumisiones básicas", lv1i2:"Entradas y reacciones de derribo", lv1i3:"Distribución del peso",
       lv1i4:"Entradas de guardia", lv1i5:"Sumisiones sutiles", lv1i6:"Posiciones de control", lv1i7:"Conciencia corporal",
-      seminarioAlt:"Bernardo Mastrangelo corrigiendo la posición de un alumno durante un seminario",
+      baseAlt:"Bernardo Mastrangelo entrenando una entrada de pierna en el tatami",
       lv2Belt:"Para quien ya compite · cinturón violeta, marrón y negro",
       lv2H3:"El juego que puntúa en campeonato.",
       lv2i1:"Compass system", lv2i2:"Pasaje de guardia", lv2i3:"Conexiones arriba",
       lv2i4:"Conexiones de derribo + control", lv2i5:"Imanari roll y fundamentos de cross ashi", lv2i6:"Movilidad y fluidez",
-      arenaAlt:"Bernardo Mastrangelo con los brazos en alto en el tatami del Campeonato Brasileño IBJJF",
+      competicaoAlt:"Bernardo Mastrangelo jugando la guardia en competición, controlando la pierna del rival",
       levelsClose:"Gi y No-Gi. <span>La clase se arma para tu juego.</span>",
       pkgsEyebrow:"Cómo funciona",
       pkgsH2:"Elegí tu ritmo.",
@@ -746,7 +747,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       specK5:"Lugar", specV5:"Río de Janeiro · Team Nova União",
       specK6:"Precios", specV6:"Se arregla por WhatsApp",
       specsCta:"Agendar por WhatsApp",
-      gritoAlt:"Bernardo Mastrangelo gritando en festejo en el tatami del Campeonato Brasileño",
+      adccAlt:"Bernardo Mastrangelo con los brazos abiertos festejando en el ADCC Trials de Río",
       finalH2:"El tatami ya está reservado. <em>Solo faltás vos.</em>",
       finalCta:"Agendar por WhatsApp",
       finalLocal:"<b>Río de Janeiro</b> · Team Nova União",
