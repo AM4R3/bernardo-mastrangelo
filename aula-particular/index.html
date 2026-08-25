@@ -142,7 +142,7 @@ section{position:relative}
 }
 
 .score__num--musgo{color:var(--musgo)}
-.score__num--palavra{font-size:clamp(1.9rem,6.2vw,3.1rem);letter-spacing:-.01em}
+.score__num--palavra{font-size:clamp(1.6rem,5.4vw,2.6rem);letter-spacing:-.015em;line-height:1.05}
 .score__label{color:var(--tinta-2);max-width:22ch}
 .score__label b{display:block;color:var(--tinta);font-family:Archivo,sans-serif;font-weight:800;font-stretch:88%;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1rem,3.6vw,1.24rem);line-height:1.1;margin-bottom:.35em}
 .score__foot{margin-top:clamp(26px,5vw,36px);color:var(--tinta-2);font-size:.88rem;line-height:1.75}
@@ -200,9 +200,10 @@ section{position:relative}
 .level{position:relative;padding-top:clamp(30px,6vw,44px);border-top:1px solid var(--linha)}
 .level+.level{margin-top:clamp(48px,9vw,84px)}
 .level__idx{
-  font-family:Archivo,sans-serif;font-weight:900;font-stretch:80%;font-size:clamp(3rem,11vw,5.4rem);
-  line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(51,66,42,.4);
-  margin-bottom:.12em;
+  font-family:Archivo,sans-serif;font-weight:900;font-stretch:80%;
+  font-size:clamp(1.45rem,5.2vw,2.5rem);text-transform:uppercase;
+  line-height:1;letter-spacing:-.015em;color:transparent;-webkit-text-stroke:1.2px rgba(51,66,42,.75);
+  margin-bottom:clamp(12px,2.4vw,16px);
 }
 .level__belt{color:var(--tinta-2);margin-bottom:clamp(14px,3vw,18px)}
 .level h3{font-size:var(--fs-h2);max-width:14ch;margin-bottom:clamp(22px,4.5vw,30px)}
@@ -288,7 +289,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
 /* ---------- IMAGENS ---------- */
 .band{position:relative;line-height:0;isolation:isolate;overflow:hidden}
-.band img{width:100%;height:clamp(380px,92vw,560px);object-fit:cover;object-position:50% 44%;filter:saturate(.95) contrast(1.03)}
+.band img{width:100%;height:clamp(260px,74vw,560px);object-fit:cover;object-position:50% 46%;filter:saturate(.95) contrast(1.03)}
 .band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.72))}
 .band__cap{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:clamp(16px,3.4vw,26px);color:#FAFAF8;line-height:1.6;max-width:44ch;text-shadow:0 1px 10px rgba(0,0,0,.85)}
 .level__media{margin:0 0 clamp(24px,4.5vw,32px);line-height:0;overflow:hidden}
@@ -400,16 +401,16 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   <div class="wrap">
     <div class="score__grid">
       <div class="score__item rv">
-        <div class="score__num" data-count="1" data-suffix="º">1º</div>
-        <p class="score__label" data-i18n-html="score1"><b>Campeão Brasileiro</b>IBJJF 2026</p>
+        <div class="score__num score__num--palavra" data-i18n="score1Word">Campeão</div>
+        <p class="score__label" data-i18n-html="score1"><b>Brasileiro IBJJF</b>2026</p>
       </div>
       <div class="score__item rv" style="--d:80ms">
-        <div class="score__num" data-count="1" data-suffix="º">1º</div>
-        <p class="score__label" data-i18n-html="score2"><b>Campeão Mundial</b>IBJJF Juvenil 2019</p>
+        <div class="score__num score__num--palavra" data-i18n="score2Word">Campeão</div>
+        <p class="score__label" data-i18n-html="score2"><b>Mundial IBJJF Juvenil</b>2019</p>
       </div>
       <div class="score__item rv" style="--d:160ms">
-        <div class="score__num score__num--palavra" data-i18n="score3Word">ADCC</div>
-        <p class="score__label" data-i18n-html="score3"><b>Trials 2026</b>Rio de Janeiro</p>
+        <div class="score__num score__num--palavra" data-i18n="score3Word">Múltiplo</div>
+        <p class="score__label" data-i18n-html="score3"><b>Campeão de OPEN’s</b>IBJJF</p>
       </div>
       <div class="score__item rv" style="--d:240ms">
         <div class="score__num score__num--musgo" data-count="9" data-suffix="s">9s</div>
@@ -417,16 +418,18 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       </div>
     </div>
     <p class="score__foot rv" style="--d:320ms" data-i18n-html="scoreFoot">
-      Múltiplo campeão de <b class="hl">OPEN’s da IBJJF</b>.<br>
+      
       No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.
     </p>
   </div>
 </section>
 
-<figure class="band rv" style="margin:0">
-  <img src="/img/band.webp" width="1600" height="560" loading="lazy" decoding="async"
+<figure class="band rv" style="margin:0"><picture>
+  <source media="(min-width:720px)" srcset="/img/band.webp">
+  <img src="/img/band-mobile.webp" width="1000" height="750" loading="lazy" decoding="async"
        alt="Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário"
        data-i18n-alt="bandAlt">
+  </picture>
   <figcaption class="mono band__cap" data-i18n="bandCap">Pódio · Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026 · Faixa preta adulto pluma</figcaption>
 </figure>
 
@@ -469,7 +472,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     <div class="levels__grid">
 
       <article class="level rv">
-        <div class="level__idx" aria-hidden="true">01</div>
+        <div class="level__idx" data-i18n="lv1Titulo">Aula iniciante</div>
         <p class="mono level__belt" data-i18n="lv1Belt">Pra quem está começando · faixa branca e azul</p>
         <h3 data-i18n="lv1H3">Base que acelera anos de tatame.</h3>
         <figure class="level__media video">
@@ -491,7 +494,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       </article>
 
       <article class="level rv">
-        <div class="level__idx" aria-hidden="true">02</div>
+        <div class="level__idx" data-i18n="lv2Titulo">Aula avançada</div>
         <p class="mono level__belt" data-i18n="lv2Belt">Pra quem já compete · faixa roxa, marrom e preta</p>
         <h3 data-i18n="lv2H3">O jogo que pontua em campeonato.</h3>
         <figure class="level__media level__media--alto video">
@@ -661,6 +664,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
   var DICT = {
     pt:{
+      lv1Titulo:"Aula iniciante", lv2Titulo:"Aula avançada",
       somLigar:"Ligar o som", somDesligar:"Desligar o som",
       filmeEyebrow:"Em vídeo", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Filme sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo ensinando no tatame", tecnicaAria:"Bernardo Mastrangelo aplicando uma queda no tatame",
       dropRot:"Colab assinada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Ver na loja Rasta Hale ↗", dropAlt:"Arte do drop Pitbull State of Mind, colab da Rasta Hale com Bernardo Mastrangelo",
@@ -673,10 +677,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroH1:"Treine com um dos <em>maiores lutadores do cenário atual.</em>",
       heroSub:"Bernardo Mastrangelo. Faixa-preta, Campeão Brasileiro IBJJF 2026 e No-Gi Coach na Team Nova União.",
       heroCta:"Agendar pelo WhatsApp",
-      score1:"<b>Campeão Brasileiro</b>IBJJF 2026", score2:"<b>Campeão Mundial</b>IBJJF Juvenil 2019",
-      score3Word:"ADCC", score3:"<b>Trials 2026</b>Rio de Janeiro",
+      score1Word:"Campeão", score1:"<b>Brasileiro IBJJF</b>2026", score2Word:"Campeão", score2:"<b>Mundial IBJJF Juvenil</b>2019",
+      score3Word:"Múltiplo", score3:"<b>Campeão de OPEN’s</b>IBJJF",
       score4:"<b>Finalização mais rápida</b>ADCC Trials da América do Sul",
-      scoreFoot:'Múltiplo campeão de <b class="hl">OPEN’s da IBJJF</b>.<br>No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
+      scoreFoot:'No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário",
       bandCap:"Competição · disputa de guarda no tatame",
       levelsEyebrow:"O que a gente treina",
@@ -725,6 +729,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     en:{
+      lv1Titulo:"Beginner class", lv2Titulo:"Advanced class",
       somLigar:"Turn sound on", somDesligar:"Turn sound off",
       filmeEyebrow:"On film", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film about Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo teaching on the mat", tecnicaAria:"Bernardo Mastrangelo hitting a takedown on the mat",
       dropRot:"Signature collab", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"See it at the Rasta Hale store ↗", dropAlt:"Artwork of the Pitbull State of Mind drop, a Rasta Hale collab with Bernardo Mastrangelo",
@@ -737,10 +742,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroH1:"Train with one of the <em>top competitors in the game today.</em>",
       heroSub:"Bernardo Mastrangelo. Black belt, Brazilian National Champion IBJJF 2026 and No-Gi Coach at Team Nova União. English spoken.",
       heroCta:"Book via WhatsApp",
-      score1:"<b>Brazilian National Champion</b>IBJJF 2026", score2:"<b>World Champion</b>IBJJF Juvenile 2019",
-      score3Word:"ADCC", score3:"<b>Trials 2026</b>Rio de Janeiro",
+      score1Word:"Champion", score1:"<b>Brazilian National IBJJF</b>2026", score2Word:"Champion", score2:"<b>IBJJF Juvenile World</b>2019",
+      score3Word:"Multiple", score3:"<b>IBJJF OPEN’s champion</b>",
       score4:"<b>Fastest submission</b>ADCC South America Trials",
-      scoreFoot:'Multiple-time <b class="hl">IBJJF OPEN’s</b> champion.<br>No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro. Sponsored athlete <b class="hl">Rasta Hale</b>.',
+      scoreFoot:'No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro. Sponsored athlete <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo playing guard in competition, controlling his opponent's leg",
       bandCap:"Competition · playing guard on the mat",
       levelsEyebrow:"What we train",
@@ -789,6 +794,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     es:{
+      lv1Titulo:"Clase inicial", lv2Titulo:"Clase avanzada",
       somLigar:"Activar el sonido", somDesligar:"Silenciar",
       filmeEyebrow:"En video", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo enseñando en el tatami", tecnicaAria:"Bernardo Mastrangelo aplicando un derribo en el tatami",
       dropRot:"Colab firmada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Verlo en la tienda Rasta Hale ↗", dropAlt:"Arte del drop Pitbull State of Mind, colab de Rasta Hale con Bernardo Mastrangelo",
@@ -801,10 +807,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroH1:"Entrená con uno de los <em>mejores luchadores de la escena actual.</em>",
       heroSub:"Bernardo Mastrangelo. Cinturón negro, Campeón Brasileño IBJJF 2026 y No-Gi Coach en Team Nova União. Se habla español.",
       heroCta:"Agendar por WhatsApp",
-      score1:"<b>Campeón Brasileño</b>IBJJF 2026", score2:"<b>Campeón Mundial</b>IBJJF Juvenil 2019",
-      score3Word:"ADCC", score3:"<b>Trials 2026</b>Río de Janeiro",
+      score1Word:"Campeón", score1:"<b>Brasileño IBJJF</b>2026", score2Word:"Campeón", score2:"<b>Mundial IBJJF Juvenil</b>2019",
+      score3Word:"Múltiple", score3:"<b>Campeón de OPEN’s</b>IBJJF",
       score4:"<b>Sumisión más rápida</b>ADCC Trials de Sudamérica",
-      scoreFoot:'Múltiple campeón de <b class="hl">OPEN’s de la IBJJF</b>.<br>No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
+      scoreFoot:'No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo jugando la guardia en competición, controlando la pierna del rival",
       bandCap:"Competición · disputa de guardia en el tatami",
       levelsEyebrow:"Lo que entrenamos",
