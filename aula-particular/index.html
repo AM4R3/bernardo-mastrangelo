@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aula Particular de Jiu-Jitsu no Rio com Bernardo Mastrangelo, Campeão Brasileiro IBJJF</title>
-<meta name="description" content="Aulas particulares de jiu-jitsu no Rio de Janeiro com Bernardo Mastrangelo, faixa-preta, Campeão Brasileiro IBJJF 2026 e pódio no ADCC Trials. Gi e No-Gi, todos os níveis. Private BJJ classes in Rio, English and Español.">
+<meta name="description" content="Aulas particulares de jiu-jitsu no Rio de Janeiro com Bernardo Mastrangelo, faixa-preta, Campeão Brasileiro IBJJF 2026 e pódio no ADCC Trials. Com e sem kimono, todos os níveis. Private BJJ classes in Rio, English and Español.">
 <meta name="theme-color" content="#FAFAF8">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bernardomastrangelo.site/aula-particular">
@@ -42,8 +42,7 @@
   --tinta-2:#585C64;
   --linha:rgba(20,22,26,.14);
   --fs-hero:clamp(2.05rem,6.8vw,4.4rem);
-  --fs-num:clamp(3.5rem,12vw,8rem);
-  --selo:clamp(5.67rem,19.44vw,12.96rem);
+  --fs-num:clamp(3.2rem,11vw,5.8rem);
   --fs-h2:clamp(1.9rem,6vw,3.4rem);
   --ease:cubic-bezier(.22,1,.36,1);
   --pad:clamp(20px,5.5vw,88px);
@@ -143,13 +142,29 @@ section{position:relative}
 }
 
 .score__num--musgo{color:var(--musgo)}
-.score__num--palavra{font-size:clamp(1.9rem,6.4vw,3.4rem);letter-spacing:-.01em;text-transform:uppercase}
 .score__label{color:var(--tinta-2);max-width:22ch}
 .score__label b{display:block;color:var(--tinta);font-family:Archivo,sans-serif;font-weight:800;font-stretch:88%;text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1rem,3.6vw,1.24rem);line-height:1.1;margin-bottom:.35em}
 .score__foot{margin-top:clamp(26px,5vw,36px);color:var(--tinta-2);font-size:.88rem;line-height:1.75}
 .score__foot .hl{color:var(--tinta);font-weight:500}
 .score__foot a{color:var(--tinta);text-decoration:none;border-bottom:1px solid var(--linha);white-space:nowrap}
 .score__foot a:hover{border-bottom-color:var(--tinta)}
+
+/* ---------- DROP ASSINADO ---------- */
+.drop{padding:0 0 clamp(52px,9vw,84px)}
+.drop__card{
+  display:flex;align-items:center;gap:clamp(16px,3.5vw,26px);
+  border:1px solid var(--linha);padding:clamp(12px,2.4vw,16px);
+  text-decoration:none;max-width:520px;
+  transition:border-color .25s var(--ease),transform .25s var(--ease);
+}
+.drop__card:hover{border-color:var(--musgo);transform:translateY(-2px)}
+.drop__arte{width:clamp(84px,20vw,108px);height:auto;aspect-ratio:1;object-fit:cover;flex:0 0 auto}
+.drop__txt{display:flex;flex-direction:column}
+.drop__rot{color:var(--musgo);margin-bottom:.5em}
+.drop__nome{font-family:Archivo,sans-serif;font-weight:800;font-stretch:88%;text-transform:uppercase;
+  font-size:clamp(.92rem,3.4vw,1.08rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:.5em}
+.drop__cta{color:var(--tinta-2);font-size:.82rem;display:inline-flex;align-items:center;gap:.4em;transition:color .25s var(--ease)}
+.drop__card:hover .drop__cta{color:var(--musgo)}
 
 /* ---------- AULA POR NÍVEL ---------- */
 .levels{padding:clamp(64px,12vw,120px) 0}
@@ -260,15 +275,24 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
 /* ---------- RESPONSIVO ---------- */
 @media (min-width:720px){
-  .score__grid{grid-template-columns:repeat(3,1fr);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
-  .score__item{flex-direction:column;align-items:flex-start;gap:20px;border-bottom:0;padding:clamp(30px,4vw,44px) clamp(22px,3vw,34px) clamp(30px,4vw,44px) 0}
-  .score__item+.score__item{border-left:1px solid var(--linha);padding-left:clamp(22px,3vw,34px)}
+  .score__grid{grid-template-columns:repeat(2,1fr);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .score__item{flex-direction:column;align-items:flex-start;gap:18px;border-bottom:0;padding:clamp(28px,3.6vw,40px) clamp(22px,3vw,32px)}
+  .score__item:nth-child(-n+2){border-bottom:1px solid var(--linha)}
+  .score__item:nth-child(2n){border-left:1px solid var(--linha)}
+  .score__item:nth-child(2n+1){padding-left:0}
   .level__list{columns:2;column-gap:40px;border-top:0}
   .level__list li{break-inside:avoid;border-top:1px solid var(--linha);border-bottom:0}
   .pkgs__grid{grid-template-columns:repeat(3,1fr);gap:20px}
   .pkg--featured{transform:translateY(-14px)}
   .final__meta{grid-template-columns:1fr 1fr;align-items:end}
   .specs__list{max-width:420px}
+}
+@media (min-width:1080px){
+  /* quatro conquistas lado a lado */
+  .score__grid{grid-template-columns:repeat(4,1fr)}
+  .score__item:nth-child(-n+2){border-bottom:0}
+  .score__item:nth-child(n){border-left:1px solid var(--linha);padding-left:clamp(20px,2.4vw,28px)}
+  .score__item:first-child{border-left:0;padding-left:0}
 }
 @media (min-width:900px){
   .sticky{display:none}
@@ -334,7 +358,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
        data-i18n-alt="heroAlt" fetchpriority="high" decoding="async">
   <div class="hero__veil" aria-hidden="true"></div>
   <div class="hero__inner">
-    <p class="mono hero__eyebrow rv" data-i18n="heroEyebrow">Aulas particulares de jiu-jitsu · Gi &amp; No-Gi · Rio de Janeiro</p>
+    <p class="mono hero__eyebrow rv" data-i18n="heroEyebrow">Aulas particulares de jiu-jitsu · com e sem kimono · Rio de Janeiro</p>
     <h1 class="rv" style="--d:80ms" data-i18n-html="heroH1">Treine com um dos <em>maiores lutadores do cenário atual.</em></h1>
     <p class="hero__sub rv" style="--d:160ms" data-i18n="heroSub">Bernardo Mastrangelo. Faixa-preta, Campeão Brasileiro IBJJF 2026 e No-Gi Coach na Team Nova União.</p>
     <div class="rv" style="--d:240ms">
@@ -351,19 +375,22 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="score__num" data-count="1" data-suffix="º">1º</div>
         <p class="score__label" data-i18n-html="score1"><b>Campeão Brasileiro</b>IBJJF 2026</p>
       </div>
-      <div class="score__item rv" style="--d:90ms">
-        <div class="score__num score__num--palavra" data-i18n="score2Word">Pódio</div>
-        <p class="score__label" data-i18n-html="score2"><b>ADCC Trials</b>2026</p>
+      <div class="score__item rv" style="--d:80ms">
+        <div class="score__num" data-count="1" data-suffix="º">1º</div>
+        <p class="score__label" data-i18n-html="score2"><b>Campeão Mundial</b>IBJJF Juvenil 2019</p>
       </div>
-      <div class="score__item rv" style="--d:180ms">
+      <div class="score__item rv" style="--d:160ms">
+        <div class="score__num" data-count="3" data-suffix="º">3º</div>
+        <p class="score__label" data-i18n-html="score3"><b>ADCC Trials</b>2026</p>
+      </div>
+      <div class="score__item rv" style="--d:240ms">
         <div class="score__num score__num--musgo" data-count="9" data-suffix="s">9s</div>
-        <p class="score__label" data-i18n-html="score3"><b>Finalização mais rápida</b>ADCC Trials da América do Sul</p>
+        <p class="score__label" data-i18n-html="score4"><b>Finalização mais rápida</b>ADCC Trials da América do Sul</p>
       </div>
     </div>
-    <p class="score__foot rv" style="--d:240ms" data-i18n-html="scoreFoot">
-      <b class="hl">Campeão Mundial IBJJF Juvenil 2019</b>. Múltiplo campeão de Opens da IBJJF.<br>
-      No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rastahale</b>, colab
-      <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>
+    <p class="score__foot rv" style="--d:320ms" data-i18n-html="scoreFoot">
+      Múltiplo campeão de <b class="hl">Opens da IBJJF</b>.<br>
+      No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.
     </p>
   </div>
 </section>
@@ -374,6 +401,22 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
        data-i18n-alt="bandAlt">
   <figcaption class="mono band__cap" data-i18n="bandCap">Pódio · Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026 · Faixa preta adulto pluma</figcaption>
 </figure>
+
+<!-- ====================== DROP ASSINADO ====================== -->
+<section class="drop" id="colab">
+  <div class="wrap">
+    <a class="drop__card rv" href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">
+      <img class="drop__arte" src="/img/drop.webp" width="560" height="560" loading="lazy" decoding="async"
+           alt="Arte do drop Pitbull State of Mind, colab da Rasta Hale com Bernardo Mastrangelo"
+           data-i18n-alt="dropAlt">
+      <span class="drop__txt">
+        <span class="mono drop__rot" data-i18n="dropRot">Colab assinada</span>
+        <span class="drop__nome" data-i18n="dropNome">Pitbull Aloha ft. Bernardo Mastrangelo</span>
+        <span class="drop__cta" data-i18n="dropCta">Ver na loja Rasta Hale ↗</span>
+      </span>
+    </a>
+  </div>
+</section>
 
 <!-- ====================== A AULA POR NÍVEL ====================== -->
 <section class="levels" id="curriculo">
@@ -396,7 +439,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
           <li data-n="02" data-i18n="lv1i2">Entradas e reações de queda</li>
           <li data-n="03" data-i18n="lv1i3">Distribuição de peso</li>
           <li data-n="04" data-i18n="lv1i4">Entradas de guarda</li>
-          <li data-n="05" data-i18n="lv1i5">Finalizações sutis</li>
+          <li data-n="05" data-i18n="lv1i5">Finalizações maldosas</li>
           <li data-n="06" data-i18n="lv1i6">Posições de controle</li>
           <li data-n="07" data-i18n="lv1i7">Consciência corporal</li>
         </ul>
@@ -423,7 +466,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       </article>
 
     </div>
-    <p class="levels__close rv" data-i18n-html="levelsClose">Gi e No-Gi. <span>A aula é montada pro seu jogo.</span></p>
+    <p class="levels__close rv" data-i18n-html="levelsClose">Com e sem kimono. <span>A aula é montada pro seu jogo.</span></p>
   </div>
 </section>
 
@@ -478,11 +521,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       Finalização mais rápida do ADCC Trials da América do Sul, em <strong>9 segundos.</strong>
     </p>
     <ul class="specs__list rv" style="--d:160ms">
-      <li><span data-i18n="specK1">Aulas</span> <b data-i18n="specV1">Particular, Gi &amp; No-Gi</b></li>
+      <li><span data-i18n="specK1">Aulas</span> <b data-i18n="specV1">Particular, com e sem kimono</b></li>
       <li><span data-i18n="specK2">Formato</span> <b data-i18n="specV2">Avulsa ou pacote</b></li>
       <li><span data-i18n="specK3">Níveis</span> <b data-i18n="specV3">Todos os níveis</b></li>
       <li><span data-i18n="specK4">Idiomas</span> <b data-i18n="specV4">Português, inglês e espanhol</b></li>
-      <li><span data-i18n="specK5">Local</span> <b data-i18n="specV5">Rio de Janeiro · Team Nova União</b></li>
+      <li><span data-i18n="specK5">Local</span> <b data-i18n="specV5">Rio de Janeiro · Rasta Hale</b></li>
       <li><span data-i18n="specK6">Valores</span> <b data-i18n="specV6">Combinado no WhatsApp</b></li>
     </ul>
     <a class="btn btn--musgo js-wa rv" href="https://wa.me/5522997666634" data-msg="geral" style="--d:200ms"><span data-i18n="specsCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
@@ -500,13 +543,13 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 <!-- ====================== CTA FINAL ====================== -->
 <section class="final" id="agendar">
   <div class="wrap">
-    <h2 class="rv" data-i18n-html="finalH2">O tatame tá marcado. <em>Só falta você.</em></h2>
+    <h2 class="rv" data-i18n-html="finalH2">Bora <em>pro tatame.</em></h2>
     <div class="final__cta rv" style="--d:100ms">
       <a class="btn btn--musgo js-wa" href="https://wa.me/5522997666634" data-msg="geral"><span data-i18n="finalCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
     </div>
     <div class="final__meta rv" style="--d:160ms">
       <!-- VALIDAR: bairro exibível da Team Nova União e se atende em outros locais -->
-      <p data-i18n-html="finalLocal"><b>Rio de Janeiro</b> · Team Nova União</p>
+      <p data-i18n-html="finalLocal"><b>Rio de Janeiro</b> · Rasta Hale</p>
       <p data-i18n-html="finalDirect">Prefere o Direct? <a href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener">@bernardomastrangelo</a></p>
     </div>
   </div>
@@ -553,7 +596,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
     {
       "@type":"Service",
-      "name":"Aula particular de jiu-jitsu, Gi e No-Gi",
+      "name":"Aula particular de jiu-jitsu, com e sem kimono",
       "serviceType":"Aula particular de jiu-jitsu",
       "provider":{"@id":"https://bernardomastrangelo.site/#bernardo"},
       "areaServed":{"@type":"City","name":"Rio de Janeiro"},
@@ -572,33 +615,34 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
   var DICT = {
     pt:{
+      dropRot:"Colab assinada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Ver na loja Rasta Hale ↗", dropAlt:"Arte do drop Pitbull State of Mind, colab da Rasta Hale com Bernardo Mastrangelo",
       htmlLang:"pt-BR",
       title:"Aula Particular de Jiu-Jitsu no Rio com Bernardo Mastrangelo, Campeão Brasileiro IBJJF",
-      metaDesc:"Aulas particulares de jiu-jitsu no Rio de Janeiro com Bernardo Mastrangelo, faixa-preta, Campeão Brasileiro IBJJF 2026 e pódio no ADCC Trials. Gi e No-Gi, todos os níveis.",
+      metaDesc:"Aulas particulares de jiu-jitsu no Rio de Janeiro com Bernardo Mastrangelo, faixa-preta, Campeão Brasileiro IBJJF 2026 e pódio no ADCC Trials. Com e sem kimono, todos os níveis.",
       navCta:"Agendar",
       heroAlt:"Bernardo Mastrangelo comemorando aos gritos no tatame depois de vencer",
-      heroEyebrow:"Aulas particulares de jiu-jitsu · Gi & No-Gi · Rio de Janeiro",
+      heroEyebrow:"Aulas particulares de jiu-jitsu · com e sem kimono · Rio de Janeiro",
       heroH1:"Treine com um dos <em>maiores lutadores do cenário atual.</em>",
       heroSub:"Bernardo Mastrangelo. Faixa-preta, Campeão Brasileiro IBJJF 2026 e No-Gi Coach na Team Nova União.",
       heroCta:"Agendar pelo WhatsApp",
-      score1:"<b>Campeão Brasileiro</b>IBJJF 2026",
-      score2Word:"Pódio", score2:"<b>ADCC Trials</b>2026",
-      score3:"<b>Finalização mais rápida</b>ADCC Trials da América do Sul",
-      scoreFoot:'<b class="hl">Campeão Mundial IBJJF Juvenil 2019</b>. Múltiplo campeão de Opens da IBJJF.<br>No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rastahale</b>, colab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
+      score1:"<b>Campeão Brasileiro</b>IBJJF 2026", score2:"<b>Campeão Mundial</b>IBJJF Juvenil 2019",
+      score3:"<b>ADCC Trials</b>2026",
+      score4:"<b>Finalização mais rápida</b>ADCC Trials da América do Sul",
+      scoreFoot:'Múltiplo campeão de <b class="hl">Opens da IBJJF</b>.<br>No-Gi Coach na <b class="hl">Team Nova União</b>, Rio de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo de braços erguidos comemorando com a equipe no ADCC Trials do Rio",
       bandCap:"ADCC Trials · Rio de Janeiro · comemoração com a equipe",
       levelsEyebrow:"O que a gente treina",
       lv1Belt:"Pra quem está começando · faixa branca e azul",
       lv1H3:"Base que acelera anos de tatame.",
       lv1i1:"Finalizações básicas", lv1i2:"Entradas e reações de queda", lv1i3:"Distribuição de peso",
-      lv1i4:"Entradas de guarda", lv1i5:"Finalizações sutis", lv1i6:"Posições de controle", lv1i7:"Consciência corporal",
+      lv1i4:"Entradas de guarda", lv1i5:"Finalizações maldosas", lv1i6:"Posições de controle", lv1i7:"Consciência corporal",
       baseAlt:"Bernardo Mastrangelo treinando uma entrada de perna no tatame",
       lv2Belt:"Pra quem já compete · faixa roxa, marrom e preta",
       lv2H3:"O jogo que pontua em campeonato.",
       lv2i1:"Compass system", lv2i2:"Passagem de guarda", lv2i3:"Conexões em cima",
       lv2i4:"Conexões de queda + controle", lv2i5:"Imanari roll e fundamentos de cross ashi", lv2i6:"Mobilidade e fluidez",
       competicaoAlt:"Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário",
-      levelsClose:"Gi e No-Gi. <span>A aula é montada pro seu jogo.</span>",
+      levelsClose:"Com e sem kimono. <span>A aula é montada pro seu jogo.</span>",
       pkgsEyebrow:"Como funciona",
       pkgsH2:"Escolha o ritmo.",
       pkgTag:"Mais escolhido",
@@ -611,17 +655,17 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       specsEyebrow:"Ficha técnica",
       specsH2:"Como a aula acontece.",
       specsBody:"<strong>Campeão Brasileiro IBJJF 2026</strong> e <strong>Campeão Mundial IBJJF Juvenil 2019</strong>. Pódio no ADCC Trials 2026 e múltiplo campeão de Opens da IBJJF. Finalização mais rápida do ADCC Trials da América do Sul, em <strong>9 segundos.</strong>",
-      specK1:"Aulas", specV1:"Particular, Gi & No-Gi",
+      specK1:"Aulas", specV1:"Particular, com e sem kimono",
       specK2:"Formato", specV2:"Avulsa ou pacote",
       specK3:"Níveis", specV3:"Todos os níveis",
       specK4:"Idiomas", specV4:"Português, inglês e espanhol",
-      specK5:"Local", specV5:"Rio de Janeiro · Team Nova União",
+      specK5:"Local", specV5:"Rio de Janeiro · Rasta Hale",
       specK6:"Valores", specV6:"Combinado direto com ele",
       specsCta:"Agendar pelo WhatsApp",
       adccAlt:"Bernardo Mastrangelo de braços abertos comemorando no ADCC Trials do Rio",
-      finalH2:"O tatame tá marcado. <em>Só falta você.</em>",
+      finalH2:"Bora <em>pro tatame.</em>",
       finalCta:"Agendar pelo WhatsApp",
-      finalLocal:"<b>Rio de Janeiro</b> · Team Nova União",
+      finalLocal:"<b>Rio de Janeiro</b> · Rasta Hale",
       finalDirect:'Prefere o Direct? <a href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener">@bernardomastrangelo</a>',
       footLocal:"Rio de Janeiro",
       footCred:"por Baruc Amare",
@@ -635,6 +679,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     en:{
+      dropRot:"Signature collab", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"See it at the Rasta Hale store ↗", dropAlt:"Artwork of the Pitbull State of Mind drop, a Rasta Hale collab with Bernardo Mastrangelo",
       htmlLang:"en",
       title:"Private Jiu-Jitsu Classes in Rio with Bernardo Mastrangelo, Brazilian National Champion",
       metaDesc:"Private jiu-jitsu classes in Rio de Janeiro with Bernardo Mastrangelo, black belt, Brazilian National Champion IBJJF 2026 and podium at ADCC Trials. Gi and No-Gi, all levels, English spoken.",
@@ -644,17 +689,17 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroH1:"Train with one of the <em>top competitors in the game today.</em>",
       heroSub:"Bernardo Mastrangelo. Black belt, Brazilian National Champion IBJJF 2026 and No-Gi Coach at Team Nova União. English spoken.",
       heroCta:"Book via WhatsApp",
-      score1:"<b>Brazilian National Champion</b>IBJJF 2026",
-      score2Word:"Podium", score2:"<b>ADCC Trials</b>2026",
-      score3:"<b>Fastest submission</b>ADCC South America Trials",
-      scoreFoot:'<b class="hl">IBJJF Juvenile World Champion 2019</b>. Multiple-time IBJJF Open champion.<br>No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro. Sponsored athlete <b class="hl">Rastahale</b>, collab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
+      score1:"<b>Brazilian National Champion</b>IBJJF 2026", score2:"<b>World Champion</b>IBJJF Juvenile 2019",
+      score3:"<b>ADCC Trials</b>2026",
+      score4:"<b>Fastest submission</b>ADCC South America Trials",
+      scoreFoot:'Multiple-time <b class="hl">IBJJF Open</b> champion.<br>No-Gi Coach at <b class="hl">Team Nova União</b>, Rio de Janeiro. Sponsored athlete <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo with his arms raised celebrating with his team at the ADCC Trials in Rio",
       bandCap:"ADCC Trials · Rio de Janeiro · celebrating with the team",
       levelsEyebrow:"What we train",
       lv1Belt:"For beginners · white and blue belt",
       lv1H3:"The base that saves you years on the mat.",
       lv1i1:"Basic submissions", lv1i2:"Takedown entries and reactions", lv1i3:"Weight distribution",
-      lv1i4:"Guard entries", lv1i5:"Subtle submissions", lv1i6:"Control positions", lv1i7:"Body awareness",
+      lv1i4:"Guard entries", lv1i5:"Sneaky submissions", lv1i6:"Control positions", lv1i7:"Body awareness",
       baseAlt:"Bernardo Mastrangelo drilling a leg entry on the mat",
       lv2Belt:"For competitors · purple, brown and black belt",
       lv2H3:"The game that scores in competition.",
@@ -678,13 +723,13 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       specK2:"Format", specV2:"Single class or package",
       specK3:"Levels", specV3:"All levels welcome",
       specK4:"Languages", specV4:"Portuguese, English and Spanish",
-      specK5:"Location", specV5:"Rio de Janeiro · Team Nova União",
+      specK5:"Location", specV5:"Rio de Janeiro · Rasta Hale",
       specK6:"Rates", specV6:"Agreed directly with him",
       specsCta:"Book via WhatsApp",
       adccAlt:"Bernardo Mastrangelo with his arms wide open celebrating at the ADCC Trials in Rio",
-      finalH2:"The mat is booked. <em>You're the missing part.</em>",
+      finalH2:"Let's get <em>on the mat.</em>",
       finalCta:"Book via WhatsApp",
-      finalLocal:"<b>Rio de Janeiro</b> · Team Nova União",
+      finalLocal:"<b>Rio de Janeiro</b> · Rasta Hale",
       finalDirect:'Prefer Instagram? <a href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener">@bernardomastrangelo</a>',
       footLocal:"Rio de Janeiro",
       footCred:"by Baruc Amare",
@@ -698,6 +743,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     es:{
+      dropRot:"Colab firmada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Verlo en la tienda Rasta Hale ↗", dropAlt:"Arte del drop Pitbull State of Mind, colab de Rasta Hale con Bernardo Mastrangelo",
       htmlLang:"es",
       title:"Clases Particulares de Jiu-Jitsu en Río con Bernardo Mastrangelo, Campeón Brasileño",
       metaDesc:"Clases particulares de jiu-jitsu en Río de Janeiro con Bernardo Mastrangelo, cinturón negro, Campeón Brasileño IBJJF 2026 y podio en ADCC Trials. Gi y No-Gi, todos los niveles, se habla español.",
@@ -707,17 +753,17 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       heroH1:"Entrená con uno de los <em>mejores luchadores de la escena actual.</em>",
       heroSub:"Bernardo Mastrangelo. Cinturón negro, Campeón Brasileño IBJJF 2026 y No-Gi Coach en Team Nova União. Se habla español.",
       heroCta:"Agendar por WhatsApp",
-      score1:"<b>Campeón Brasileño</b>IBJJF 2026",
-      score2Word:"Podio", score2:"<b>ADCC Trials</b>2026",
-      score3:"<b>Sumisión más rápida</b>ADCC Trials de Sudamérica",
-      scoreFoot:'<b class="hl">Campeón Mundial IBJJF Juvenil 2019</b>. Múltiple campeón de Opens de la IBJJF.<br>No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro. Atleta patrocinado <b class="hl">Rastahale</b>, colab <a href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener">Pitbull Aloha ft. Bernardo Mastrangelo ↗</a>',
+      score1:"<b>Campeón Brasileño</b>IBJJF 2026", score2:"<b>Campeón Mundial</b>IBJJF Juvenil 2019",
+      score3:"<b>ADCC Trials</b>2026",
+      score4:"<b>Sumisión más rápida</b>ADCC Trials de Sudamérica",
+      scoreFoot:'Múltiple campeón de <b class="hl">Opens de la IBJJF</b>.<br>No-Gi Coach en <b class="hl">Team Nova União</b>, Río de Janeiro. Atleta patrocinado <b class="hl">Rasta Hale</b>.',
       bandAlt:"Bernardo Mastrangelo con los brazos en alto festejando con su equipo en el ADCC Trials de Río",
       bandCap:"ADCC Trials · Río de Janeiro · festejo con el equipo",
       levelsEyebrow:"Lo que entrenamos",
       lv1Belt:"Para quien está empezando · cinturón blanco y azul",
       lv1H3:"La base que te ahorra años de tatami.",
       lv1i1:"Sumisiones básicas", lv1i2:"Entradas y reacciones de derribo", lv1i3:"Distribución del peso",
-      lv1i4:"Entradas de guardia", lv1i5:"Sumisiones sutiles", lv1i6:"Posiciones de control", lv1i7:"Conciencia corporal",
+      lv1i4:"Entradas de guardia", lv1i5:"Sumisiones mañosas", lv1i6:"Posiciones de control", lv1i7:"Conciencia corporal",
       baseAlt:"Bernardo Mastrangelo entrenando una entrada de pierna en el tatami",
       lv2Belt:"Para quien ya compite · cinturón violeta, marrón y negro",
       lv2H3:"El juego que puntúa en campeonato.",
@@ -741,13 +787,13 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       specK2:"Formato", specV2:"Suelta o paquete",
       specK3:"Niveles", specV3:"Todos los niveles",
       specK4:"Idiomas", specV4:"Portugués, inglés y español",
-      specK5:"Lugar", specV5:"Río de Janeiro · Team Nova União",
+      specK5:"Lugar", specV5:"Río de Janeiro · Rasta Hale",
       specK6:"Precios", specV6:"Se arregla directo con él",
       specsCta:"Agendar por WhatsApp",
       adccAlt:"Bernardo Mastrangelo con los brazos abiertos festejando en el ADCC Trials de Río",
-      finalH2:"El tatami ya está reservado. <em>Solo faltás vos.</em>",
+      finalH2:"Vamos <em>al tatami.</em>",
       finalCta:"Agendar por WhatsApp",
-      finalLocal:"<b>Río de Janeiro</b> · Team Nova União",
+      finalLocal:"<b>Río de Janeiro</b> · Rasta Hale",
       finalDirect:'¿Preferís Instagram? <a href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener">@bernardomastrangelo</a>',
       footLocal:"Río de Janeiro",
       footCred:"por Baruc Amare",
