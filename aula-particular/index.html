@@ -24,14 +24,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='17' font-weight='900' fill='%233D8F45' text-anchor='middle'>BM</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='17' font-weight='900' fill='%23678A47' text-anchor='middle'>BM</text></svg>">
 
 <style>
 :root{
   --preto-tatame:#000000;
-  --verde-quartel:#1C4620;
+  --grafite:#141519;
   --branco-kimono:#F2F0EA;
-  --musgo:#3D8F45;
+  --musgo:#678A47;
   --vermelho-carimbo:#E56349;
   --bronze:#A98B4F;
   --cinza-aco:#8B8E96;
@@ -62,8 +62,6 @@ h1,h2,h3{
 p{margin:0}
 :focus-visible{outline:2px solid var(--musgo);outline-offset:3px}
 
-/* sobre o verde de quartel o cinza padrao reprova em AA — clareia so ali dentro */
-.score,.pkgs,.final{--cinza-aco:#A8ABB2;--musgo:#46A450}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;line-height:1.5}
 .wrap{max-width:1240px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
 section{position:relative}
@@ -78,7 +76,21 @@ section{position:relative}
   border:1.5px solid transparent;transition:transform .25s var(--ease),background-color .25s var(--ease),color .25s var(--ease);
 }
 .btn--musgo{background:var(--musgo);color:#000000}
-.btn--musgo:hover{transform:translateY(-2px);background:#4AA352;box-shadow:0 10px 26px rgba(61,143,69,.28)}
+/* CTA principal recebe o tecido da Rastahale. A camada escura foi medida
+   sobre o pixel mais claro do arquivo: 55% garante 7.8:1 com o branco. */
+.btn--tie{
+  position:relative;isolation:isolate;color:var(--branco-kimono);
+  background:#0b0d09 url("/img/tie-cta.webp") center/cover;
+  border-color:rgba(103,138,71,.55);
+  text-shadow:0 1px 6px rgba(0,0,0,.8);
+}
+.btn--tie::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.74),rgba(0,0,0,.6) 50%,rgba(0,0,0,.76));transition:background .25s var(--ease)}
+.btn--tie:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.55)}
+.btn--tie:hover::before{background:linear-gradient(180deg,rgba(0,0,0,.62),rgba(0,0,0,.48) 50%,rgba(0,0,0,.64))}
+/* faixa de transicao: unico ponto de tecido na rolagem, antes do CTA final */
+.faixa{position:relative;height:clamp(54px,8.5vw,86px);background:#0b0d09 url("/img/tie-faixa.webp") center/cover}
+.faixa::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--preto-tatame),rgba(0,0,0,.34) 26%,rgba(0,0,0,.34) 74%,var(--preto-tatame))}
+.btn--musgo:hover{transform:translateY(-2px);background:#769B52;box-shadow:0 10px 26px rgba(103,138,71,.3)}
 .btn--ghost{border-color:var(--linha);color:var(--branco-kimono);background:transparent}
 .btn--ghost:hover{border-color:var(--branco-kimono)}
 .btn__arrow{font-size:1.1em;line-height:0}
@@ -126,7 +138,7 @@ section{position:relative}
 .hero__sub{color:var(--branco-kimono);opacity:.92;text-shadow:0 1px 14px rgba(0,0,0,.85);font-size:clamp(1rem,4vw,1.18rem);max-width:38ch;margin-bottom:clamp(26px,5vw,34px)}
 
 /* ---------- PLACAR ---------- */
-.score{background:var(--verde-quartel);padding:clamp(52px,10vw,96px) 0}
+.score{background:var(--grafite);padding:clamp(52px,10vw,96px) 0}
 .score__grid{display:grid;gap:0;border-top:1px solid var(--linha)}
 .score__item{padding:clamp(24px,5vw,34px) 0;border-bottom:1px solid var(--linha);display:flex;align-items:center;gap:clamp(16px,4vw,28px)}
 .score__num{
@@ -157,7 +169,7 @@ section{position:relative}
 .level+.level{margin-top:clamp(48px,9vw,84px)}
 .level__idx{
   font-family:Archivo,sans-serif;font-weight:900;font-stretch:80%;font-size:clamp(3rem,11vw,5.4rem);
-  line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(61,143,69,.7);
+  line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(103,138,71,.75);
   margin-bottom:.12em;
 }
 .level__belt{color:var(--cinza-aco);margin-bottom:clamp(14px,3vw,18px)}
@@ -171,7 +183,7 @@ section{position:relative}
 .levels__close span{color:var(--cinza-aco)}
 
 /* ---------- PACOTES ---------- */
-.pkgs{background:var(--verde-quartel);padding:clamp(64px,12vw,120px) 0}
+.pkgs{background:var(--grafite);padding:clamp(64px,12vw,120px) 0}
 .pkgs h2{font-size:var(--fs-h2);margin-bottom:clamp(34px,6vw,52px);max-width:16ch}
 .pkgs__grid{display:grid;gap:16px}
 .pkg{position:relative;background:var(--preto-tatame);border:1px solid var(--linha);padding:clamp(26px,5.5vw,34px);display:flex;flex-direction:column}
@@ -182,7 +194,7 @@ section{position:relative}
 .pkg__note{color:var(--cinza-aco);font-size:.92rem;max-width:26ch;margin-bottom:clamp(22px,4.5vw,28px)}
 .pkg__cta{margin-top:auto}
 .pkg .btn{width:100%;padding:1.1em .7em;font-size:.78rem;letter-spacing:.04em;line-height:1.15;text-align:center}
-.pkg--featured{border-color:rgba(61,143,69,.55);padding-top:clamp(34px,6.5vw,44px);padding-bottom:clamp(34px,6.5vw,44px)}
+.pkg--featured{border-color:rgba(103,138,71,.6);padding-top:clamp(34px,6.5vw,44px);padding-bottom:clamp(34px,6.5vw,44px)}
 .pkg--featured::after{content:"";position:absolute;inset:0;border:1.5px solid var(--musgo);pointer-events:none;clip-path:inset(0 0 100% 0);transition:clip-path .5s var(--ease) .28s}
 .pkg--featured.is-in::after{clip-path:inset(0 0 0 0)}
 .pkg__tag{position:absolute;top:0;left:clamp(26px,5.5vw,34px);transform:translateY(-50%);background:var(--musgo);color:#000000;font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:.5em .8em;line-height:1}
@@ -201,7 +213,7 @@ section{position:relative}
 .specs__media img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:50% 30%;filter:saturate(1.05) contrast(1.14) brightness(1)}
 
 /* ---------- CTA FINAL ---------- */
-.final{background:var(--verde-quartel);padding:clamp(72px,13vw,132px) 0;isolation:isolate;overflow:hidden}
+.final{background:var(--grafite);padding:clamp(72px,13vw,132px) 0;isolation:isolate;overflow:hidden}
 .final h2{font-size:clamp(2.2rem,9vw,5rem);max-width:12ch;margin-bottom:clamp(30px,5.5vw,42px)}
 .final h2::before{content:"";display:block;width:56px;height:1px;background:var(--bronze);margin-bottom:clamp(20px,4vw,28px)}
 .final h2 em{font-style:normal;color:var(--musgo);display:block}
@@ -213,7 +225,7 @@ section{position:relative}
 .final__meta a:hover{border-bottom-color:var(--branco-kimono)}
 .final__bg{position:absolute;inset:0;z-index:-1}
 .final__bg img{width:100%;height:100%;object-fit:cover;object-position:74% 22%;filter:saturate(.6) contrast(1.18) brightness(.58)}
-.final__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(175deg,rgba(28,70,32,.95) 0%,rgba(28,70,32,.84) 45%,rgba(28,70,32,.97) 100%)}
+.final__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(175deg,rgba(20,21,25,.95) 0%,rgba(20,21,25,.84) 45%,rgba(20,21,25,.97) 100%)}
 
 /* ---------- FOOTER ---------- */
 .foot{padding:clamp(30px,5vw,40px) 0;border-top:1px solid var(--linha)}
@@ -280,7 +292,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   .level{grid-column:1/8}
   .level+.level{grid-column:6/13;margin-top:clamp(64px,7vw,110px)}
   .hero h1{max-width:13ch}
-  .final__bg::after{background:linear-gradient(100deg,var(--verde-quartel) 0%,rgba(28,70,32,.94) 40%,rgba(28,70,32,.55) 100%)}
+  .final__bg::after{background:linear-gradient(100deg,var(--grafite) 0%,rgba(20,21,25,.94) 40%,rgba(20,21,25,.55) 100%)}
 }
 @media (min-width:1080px){
   .hero__img{left:auto;right:0;width:56%;object-position:58% 24%;
@@ -342,7 +354,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     <h1 class="rv" style="--d:80ms" data-i18n-html="heroH1">Treine com quem <em>compete de verdade.</em></h1>
     <p class="hero__sub rv" style="--d:160ms" data-i18n="heroSub">Bernardo Mastrangelo — faixa-preta, Campeão Brasileiro IBJJF 2026, No-Gi Coach na Team Nova União.</p>
     <div class="rv" style="--d:240ms">
-      <a class="btn btn--musgo js-wa" href="https://wa.me/5522997666634" data-msg="geral"><span data-i18n="heroCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--tie js-wa" href="https://wa.me/5522997666634" data-msg="geral"><span data-i18n="heroCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </header>
@@ -499,6 +511,8 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   </div>
 </section>
 
+<div class="faixa" aria-hidden="true"></div>
+
 <!-- ====================== CTA FINAL ====================== -->
 <section class="final" id="agendar">
   <div class="final__bg" aria-hidden="true">
@@ -507,7 +521,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   <div class="wrap">
     <h2 class="rv" data-i18n-html="finalH2">O tatame tá marcado. <em>Só falta você.</em></h2>
     <div class="final__cta rv" style="--d:100ms">
-      <a class="btn btn--musgo js-wa" href="https://wa.me/5522997666634" data-msg="geral"><span data-i18n="finalCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--tie js-wa" href="https://wa.me/5522997666634" data-msg="geral"><span data-i18n="finalCta">Agendar pelo WhatsApp</span> <span class="btn__arrow" aria-hidden="true">→</span></a>
     </div>
     <div class="final__meta rv" style="--d:160ms">
       <!-- VALIDAR: bairro exibível da Team Nova União e se atende em outros locais -->
