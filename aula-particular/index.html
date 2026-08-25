@@ -150,6 +150,16 @@ section{position:relative}
 .score__foot a{color:var(--tinta);text-decoration:none;border-bottom:1px solid var(--linha);white-space:nowrap}
 .score__foot a:hover{border-bottom-color:var(--tinta)}
 
+/* ---------- VIDEO ----------
+   preload=none + poster: o arquivo so baixa quando a pessoa aperta play */
+.video{margin:0;line-height:0}
+.video video{width:100%;height:auto;display:block;background:var(--papel-2);border:1px solid var(--linha)}
+.video figcaption{color:var(--tinta-2);line-height:1.6;margin-top:clamp(10px,2vw,14px)}
+.filme{padding:clamp(48px,9vw,86px) 0 clamp(10px,2vw,16px)}
+.filme__quadro{max-width:760px}
+.level__media video{width:100%;height:auto;display:block;background:var(--papel-2)}
+.level__media--alto{max-width:300px}
+
 /* ---------- DROP ASSINADO ---------- */
 .drop{padding:0 0 clamp(52px,9vw,84px)}
 .drop__card{
@@ -403,6 +413,20 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   <figcaption class="mono band__cap" data-i18n="bandCap">Pódio · Campeonato Brasileiro de Jiu-Jitsu Sem Kimono 2026 · Faixa preta adulto pluma</figcaption>
 </figure>
 
+<!-- ====================== FILME ====================== -->
+<section class="filme" id="filme">
+  <div class="wrap">
+    <p class="mono sec__eyebrow rv" data-i18n="filmeEyebrow">Em vídeo</p>
+    <figure class="video filme__quadro rv" style="--d:60ms">
+      <video controls playsinline preload="none" poster="/img/poster-filme.jpg"
+             width="1280" height="720" data-i18n-aria="filmeAria" aria-label="Filme sobre Bernardo Mastrangelo">
+        <source src="/video/filme.mp4" type="video/mp4">
+      </video>
+      <figcaption class="mono" data-i18n="filmeCap">Rasta Hale · Pitbull State of Mind · 1min34</figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- ====================== DROP ASSINADO ====================== -->
 <section class="drop" id="colab">
   <div class="wrap">
@@ -429,11 +453,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="level__idx" aria-hidden="true">01</div>
         <p class="mono level__belt" data-i18n="lv1Belt">Pra quem está começando · faixa branca e azul</p>
         <h3 data-i18n="lv1H3">Base que acelera anos de tatame.</h3>
-        <figure class="level__media" style="margin:0">
-          <img src="/img/aula-base.webp" width="1200" height="1800" loading="lazy" decoding="async"
-               style="object-position:50% 42%"
-               alt="Bernardo Mastrangelo treinando uma entrada de perna no tatame"
-               data-i18n-alt="baseAlt">
+        <figure class="level__media video" style="margin:0 0 clamp(24px,4.5vw,32px)">
+          <video controls playsinline preload="none" poster="/img/poster-aula.jpg"
+                 width="1278" height="720" data-i18n-aria="aulaAria" aria-label="Bernardo Mastrangelo ensinando no tatame">
+            <source src="/video/aula.mp4" type="video/mp4">
+          </video>
         </figure>
         <ul class="level__list">
           <li data-n="01" data-i18n="lv1i1">Finalizações básicas</li>
@@ -450,11 +474,11 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
         <div class="level__idx" aria-hidden="true">02</div>
         <p class="mono level__belt" data-i18n="lv2Belt">Pra quem já compete · faixa roxa, marrom e preta</p>
         <h3 data-i18n="lv2H3">O jogo que pontua em campeonato.</h3>
-        <figure class="level__media" style="margin:0">
-          <img src="/img/aula-competicao.webp" width="1200" height="800" loading="lazy" decoding="async"
-               style="object-position:58% 50%"
-               alt="Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário"
-               data-i18n-alt="competicaoAlt">
+        <figure class="level__media level__media--alto video" style="margin:0 0 clamp(24px,4.5vw,32px)">
+          <video controls playsinline preload="none" poster="/img/poster-tecnica.jpg"
+                 width="506" height="900" data-i18n-aria="tecnicaAria" aria-label="Bernardo Mastrangelo aplicando uma queda no tatame">
+            <source src="/video/tecnica.mp4" type="video/mp4">
+          </video>
         </figure>
         <ul class="level__list">
           <li data-n="01" data-i18n="lv2i1">Compass system</li>
@@ -616,6 +640,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
   var DICT = {
     pt:{
+      filmeEyebrow:"Em vídeo", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Filme sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo ensinando no tatame", tecnicaAria:"Bernardo Mastrangelo aplicando uma queda no tatame",
       dropRot:"Colab assinada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Ver na loja Rasta Hale ↗", dropAlt:"Arte do drop Pitbull State of Mind, colab da Rasta Hale com Bernardo Mastrangelo",
       htmlLang:"pt-BR",
       title:"Aula Particular de Jiu-Jitsu no Rio com Bernardo Mastrangelo, Campeão Brasileiro IBJJF",
@@ -637,12 +662,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       lv1H3:"Base que acelera anos de tatame.",
       lv1i1:"Finalizações básicas", lv1i2:"Entradas e reações de queda", lv1i3:"Distribuição de peso",
       lv1i4:"Entradas de guarda", lv1i5:"Finalizações maldosas", lv1i6:"Posições de controle", lv1i7:"Consciência corporal",
-      baseAlt:"Bernardo Mastrangelo treinando uma entrada de perna no tatame",
       lv2Belt:"Pra quem já compete · faixa roxa, marrom e preta",
       lv2H3:"O jogo que pontua em campeonato.",
       lv2i1:"Compass system", lv2i2:"Passagem de guarda", lv2i3:"Conexões em cima",
       lv2i4:"Conexões de queda + controle", lv2i5:"Imanari roll e fundamentos de cross ashi", lv2i6:"Mobilidade e fluidez",
-      competicaoAlt:"Bernardo Mastrangelo disputando a guarda em competição, controlando a perna do adversário",
       levelsClose:"Com e sem kimono. <span>A aula é montada pro seu jogo.</span>",
       pkgsEyebrow:"Como funciona",
       pkgsH2:"Escolha o ritmo.",
@@ -680,6 +703,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     en:{
+      filmeEyebrow:"On film", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film about Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo teaching on the mat", tecnicaAria:"Bernardo Mastrangelo hitting a takedown on the mat",
       dropRot:"Signature collab", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"See it at the Rasta Hale store ↗", dropAlt:"Artwork of the Pitbull State of Mind drop, a Rasta Hale collab with Bernardo Mastrangelo",
       htmlLang:"en",
       title:"Private Jiu-Jitsu Classes in Rio with Bernardo Mastrangelo, Brazilian National Champion",
@@ -701,12 +725,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       lv1H3:"The base that saves you years on the mat.",
       lv1i1:"Basic submissions", lv1i2:"Takedown entries and reactions", lv1i3:"Weight distribution",
       lv1i4:"Guard entries", lv1i5:"Sneaky submissions", lv1i6:"Control positions", lv1i7:"Body awareness",
-      baseAlt:"Bernardo Mastrangelo drilling a leg entry on the mat",
       lv2Belt:"For competitors · purple, brown and black belt",
       lv2H3:"The game that scores in competition.",
       lv2i1:"Compass system", lv2i2:"Guard passing", lv2i3:"Top-position connections",
       lv2i4:"Takedown connections + control", lv2i5:"Imanari roll and cross ashi fundamentals", lv2i6:"Mobility and flow",
-      competicaoAlt:"Bernardo Mastrangelo playing guard in competition, controlling his opponent's leg",
       levelsClose:"Gi and No-Gi. <span>The class is built around your game.</span>",
       pkgsEyebrow:"How it works",
       pkgsH2:"Pick your pace.",
@@ -744,6 +766,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     es:{
+      filmeEyebrow:"En video", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo enseñando en el tatami", tecnicaAria:"Bernardo Mastrangelo aplicando un derribo en el tatami",
       dropRot:"Colab firmada", dropNome:"Pitbull Aloha ft. Bernardo Mastrangelo", dropCta:"Verlo en la tienda Rasta Hale ↗", dropAlt:"Arte del drop Pitbull State of Mind, colab de Rasta Hale con Bernardo Mastrangelo",
       htmlLang:"es",
       title:"Clases Particulares de Jiu-Jitsu en Río con Bernardo Mastrangelo, Campeón Brasileño",
@@ -765,12 +788,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
       lv1H3:"La base que te ahorra años de tatami.",
       lv1i1:"Sumisiones básicas", lv1i2:"Entradas y reacciones de derribo", lv1i3:"Distribución del peso",
       lv1i4:"Entradas de guardia", lv1i5:"Sumisiones mañosas", lv1i6:"Posiciones de control", lv1i7:"Conciencia corporal",
-      baseAlt:"Bernardo Mastrangelo entrenando una entrada de pierna en el tatami",
       lv2Belt:"Para quien ya compite · cinturón violeta, marrón y negro",
       lv2H3:"El juego que puntúa en campeonato.",
       lv2i1:"Compass system", lv2i2:"Pasaje de guardia", lv2i3:"Conexiones arriba",
       lv2i4:"Conexiones de derribo + control", lv2i5:"Imanari roll y fundamentos de cross ashi", lv2i6:"Movilidad y fluidez",
-      competicaoAlt:"Bernardo Mastrangelo jugando la guardia en competición, controlando la pierna del rival",
       levelsClose:"Gi y No-Gi. <span>La clase se arma para tu juego.</span>",
       pkgsEyebrow:"Cómo funciona",
       pkgsH2:"Elegí tu ritmo.",
@@ -838,6 +859,10 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     document.querySelectorAll("[data-i18n-alt]").forEach(function(el){
       var v = d[el.getAttribute("data-i18n-alt")];
       if(v != null) el.alt = v;
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function(el){
+      var v = d[el.getAttribute("data-i18n-aria")];
+      if(v != null) el.setAttribute("aria-label", v);
     });
 
     var tag = refTag();
