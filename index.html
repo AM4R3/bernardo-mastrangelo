@@ -117,6 +117,11 @@ h1{
 .lnk::after{content:"→";position:absolute;right:16px;color:var(--tinta-2);font-size:1rem;transition:transform .25s var(--ease),color .25s var(--ease)}
 .lnk:hover{border-color:var(--musgo);transform:translateY(-2px)}
 .lnk:hover::after{transform:translateX(3px);color:var(--musgo)}
+/* selo dentro do botao: monocromatico como o do Spotify no card da
+   playlist, pra nao abrir uma cor nova na paleta */
+.lnk--ico{gap:.62em}
+.lnk__ico{width:19px;height:19px;flex:none}
+
 .lnk--main{
   background:var(--musgo);color:var(--papel);border-color:var(--musgo);
   min-height:62px;font-size:.98rem;margin-bottom:6px;
@@ -125,38 +130,41 @@ h1{
 .lnk--main:hover{background:#44562F;border-color:#44562F;box-shadow:0 10px 24px rgba(51,66,42,.28)}
 .lnk--main:hover::after{opacity:1}
 
-/* ---------- PLAYLIST ----------
-   Card montado por nós: capa de 3 KB servida daqui, nada do Spotify no
-   load. O link é o open.spotify.com/playlist normal, que é justamente o
-   que o iOS e o Android reconhecem pra abrir o app direto; sem app, cai
-   no player web. */
-.play{width:100%}
-.play__abre{
+/* ---------- CARDS COM ARTE ----------
+   Mesma estrutura pra playlist e pro drop: capa quadrada, nome,
+   assinatura e um botão redondo. As duas capas são servidas daqui,
+   nenhuma vem de fora. No caso da playlist, o link é o
+   open.spotify.com/playlist normal, que é justamente o que o iOS e o
+   Android reconhecem pra abrir o app direto; sem app, cai no player
+   web. */
+.cartao{width:100%}
+.cartao__abre{
   width:100%;display:flex;align-items:center;gap:13px;text-align:left;
   padding:9px 12px 9px 9px;border:1px solid var(--linha);background:var(--papel-2);
   color:inherit;
   transition:border-color .25s var(--ease),transform .25s var(--ease);
 }
-.play__abre:hover{border-color:var(--musgo);transform:translateY(-2px)}
-.play__capa{width:52px;height:52px;flex:none;display:block;object-fit:cover}
-.play__txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
-.play__nome{
+.cartao__abre:hover{border-color:var(--musgo);transform:translateY(-2px)}
+.cartao__capa{width:52px;height:52px;flex:none;display:block;object-fit:cover}
+.cartao__txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.cartao__nome{
   font-family:Archivo,sans-serif;font-weight:800;font-stretch:88%;
   text-transform:uppercase;letter-spacing:.045em;font-size:.86rem;line-height:1.15;
 }
-.play__sub{
+.cartao__sub{
   display:flex;align-items:center;gap:6px;min-width:0;
   font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-2);
 }
-.play__sub svg{width:12px;height:12px;flex:none}
-.play__sub span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.play__go{
+.cartao__sub svg{width:12px;height:12px;flex:none}
+.cartao__sub span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cartao__go{
   width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;
   background:var(--musgo);color:var(--papel);
   transition:transform .25s var(--ease);
 }
-.play__abre:hover .play__go{transform:scale(1.08)}
-.play__go svg{width:15px;height:15px;margin-left:2px}
+.cartao__abre:hover .cartao__go{transform:scale(1.08)}
+.cartao__go svg{width:15px;height:15px}
+.cartao__go--play svg{margin-left:2px}
 
 .foot{margin-top:clamp(30px,7vw,44px);color:var(--tinta-2);display:flex;flex-direction:column;gap:2px;align-items:center}
 .credito{
@@ -219,30 +227,49 @@ h1{
     <a class="lnk" href="/aula-particular#pacotes" data-i18n="btnPacotes">Pacotes de aula</a>
     <a class="lnk" href="/aula-particular#curriculo" data-i18n="btnAulas">Como são as aulas</a>
     <a class="lnk" href="/aula-particular#autoridade" data-i18n="btnResultados">Resultados de competição</a>
-    <a class="lnk" href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener"
-       data-i18n="btnDrop">Pitbull Aloha na Rasta Hale</a>
-    <div class="play" id="playlist">
-      <a class="play__abre" href="https://open.spotify.com/playlist/4OHNSZKhAAEuWNKx4MYS8y" target="_blank" rel="noopener"
-         data-i18n-aria="plLabel" aria-label="Abrir a playlist Flow Jitsu no Spotify">
-        <img class="play__capa" src="/img/playlist.webp" width="160" height="160"
+    <div class="cartao">
+      <a class="cartao__abre" href="https://rastahale.com.br/collections/pitbull-aloha-ft-bernardo-mastrangelo" target="_blank" rel="noopener"
+         data-i18n-aria="dropLabel" aria-label="Ver a colab Pitbull Aloha na loja da Rasta Hale">
+        <img class="cartao__capa" src="/img/drop-mini.webp" width="160" height="160"
              alt="" loading="lazy" decoding="async">
-        <span class="play__txt">
-          <span class="play__nome">Flow Jitsu</span>
-          <span class="play__sub mono">
+        <span class="cartao__txt">
+          <span class="cartao__nome">Pitbull Aloha</span>
+          <span class="cartao__sub mono">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 12.5H6.2L5 8Z"/><path d="M9 8V6.2a3 3 0 0 1 6 0V8"/></svg>
+            <span data-i18n="dropSub">Colab com a Rasta Hale</span>
+          </span>
+        </span>
+        <span class="cartao__go" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+        </span>
+      </a>
+    </div>
+    <div class="cartao" id="playlist">
+      <a class="cartao__abre" href="https://open.spotify.com/playlist/4OHNSZKhAAEuWNKx4MYS8y" target="_blank" rel="noopener"
+         data-i18n-aria="plLabel" aria-label="Abrir a playlist Flow Jitsu no Spotify">
+        <img class="cartao__capa" src="/img/playlist.webp" width="160" height="160"
+             alt="" loading="lazy" decoding="async">
+        <span class="cartao__txt">
+          <span class="cartao__nome">Flow Jitsu</span>
+          <span class="cartao__sub mono">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0m5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02m1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2m.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
             <span data-i18n="plSub">w/ Bernardo Mastrangelo</span>
           </span>
         </span>
-        <span class="play__go" aria-hidden="true">
+        <span class="cartao__go cartao__go--play" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </span>
       </a>
     </div>
 
-    <a class="lnk" href="https://youtu.be/PjRKPpUq6Zw" target="_blank" rel="noopener"
-       data-i18n="btnPodcast">Podcast Pura Connection</a>
-    <a class="lnk" href="https://www.youtube.com/@bernardomastrangelojj" target="_blank" rel="noopener"
-       data-i18n="btnYoutube">Highlights no YouTube</a>
+    <a class="lnk lnk--ico" href="https://youtu.be/PjRKPpUq6Zw" target="_blank" rel="noopener">
+      <svg class="lnk__ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      <span data-i18n="btnPodcast">Podcast Pura Connection</span>
+    </a>
+    <a class="lnk lnk--ico" href="https://www.youtube.com/@bernardomastrangelojj" target="_blank" rel="noopener">
+      <svg class="lnk__ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      <span data-i18n="btnYoutube">Highlights no YouTube</span>
+    </a>
     <a class="lnk" href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener"
        data-i18n="btnInstagram">@bernardomastrangelo no Instagram</a>
   </div>
@@ -287,7 +314,7 @@ h1{
   var DICT = {
     pt:{
       btnYoutube:"Highlights no YouTube",
-      btnDrop:"Pitbull Aloha na Rasta Hale",
+      dropSub:"Colab com a Rasta Hale", dropLabel:"Ver a colab Pitbull Aloha na loja da Rasta Hale",
       plSub:"w/ Bernardo Mastrangelo", plLabel:"Abrir a playlist Flow Jitsu no Spotify",
       title:"Bernardo Mastrangelo, faixa-preta e Campeão Brasileiro IBJJF 2026",
       htmlLang:"pt-BR",
@@ -311,7 +338,7 @@ h1{
     },
     en:{
       btnYoutube:"Highlights on YouTube",
-      btnDrop:"Pitbull Aloha at Rasta Hale",
+      dropSub:"Collab with Rasta Hale", dropLabel:"See the Pitbull Aloha collab at the Rasta Hale store",
       plSub:"w/ Bernardo Mastrangelo", plLabel:"Open the Flow Jitsu playlist on Spotify",
       title:"Bernardo Mastrangelo, black belt and Brazilian National Champion IBJJF 2026",
       htmlLang:"en",
@@ -335,7 +362,7 @@ h1{
     },
     es:{
       btnYoutube:"Highlights en YouTube",
-      btnDrop:"Pitbull Aloha en Rasta Hale",
+      dropSub:"Colab con Rasta Hale", dropLabel:"Ver la colab Pitbull Aloha en la tienda Rasta Hale",
       plSub:"w/ Bernardo Mastrangelo", plLabel:"Abrir la playlist Flow Jitsu en Spotify",
       title:"Bernardo Mastrangelo, cinturón negro y Campeón Brasileño IBJJF 2026",
       htmlLang:"es",
