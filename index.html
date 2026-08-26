@@ -125,6 +125,39 @@ h1{
 .lnk--main:hover{background:#44562F;border-color:#44562F;box-shadow:0 10px 24px rgba(51,66,42,.28)}
 .lnk--main:hover::after{opacity:1}
 
+/* ---------- PLAYLIST ----------
+   A capa e o texto são nossos, 3 KB. O player do Spotify pesa mais de
+   um mega, então só entra depois do clique: até lá a página não pede
+   nada pra eles. */
+.play{width:100%}
+.play__abre{
+  width:100%;display:flex;align-items:center;gap:13px;text-align:left;
+  padding:9px 12px 9px 9px;border:1px solid var(--linha);background:var(--papel-2);
+  color:inherit;font:inherit;cursor:pointer;
+  transition:border-color .25s var(--ease),transform .25s var(--ease);
+}
+.play__abre:hover{border-color:var(--musgo);transform:translateY(-2px)}
+.play__capa{width:52px;height:52px;flex:none;display:block;object-fit:cover}
+.play__txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.play__nome{
+  font-family:Archivo,sans-serif;font-weight:800;font-stretch:88%;
+  text-transform:uppercase;letter-spacing:.045em;font-size:.86rem;line-height:1.15;
+}
+.play__sub{
+  display:flex;align-items:center;gap:6px;min-width:0;
+  font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-2);
+}
+.play__sub svg{width:12px;height:12px;flex:none}
+.play__sub span{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.play__go{
+  width:36px;height:36px;flex:none;border-radius:50%;display:grid;place-items:center;
+  background:var(--musgo);color:var(--papel);
+  transition:transform .25s var(--ease);
+}
+.play__abre:hover .play__go{transform:scale(1.08)}
+.play__go svg{width:15px;height:15px;margin-left:2px}
+.play iframe{display:block;width:100%;height:152px;border:0}
+
 .foot{margin-top:clamp(30px,7vw,44px);color:var(--tinta-2);display:flex;flex-direction:column;gap:2px;align-items:center}
 .credito{
   display:inline-block;color:#75777D;text-decoration:none;
@@ -186,6 +219,24 @@ h1{
     <a class="lnk" href="/aula-particular#pacotes" data-i18n="btnPacotes">Pacotes de aula</a>
     <a class="lnk" href="/aula-particular#curriculo" data-i18n="btnAulas">Como são as aulas</a>
     <a class="lnk" href="/aula-particular#autoridade" data-i18n="btnResultados">Resultados de competição</a>
+    <div class="play" id="playlist">
+      <button class="play__abre" type="button" data-i18n-aria="plLabel"
+              aria-label="Tocar a playlist Flow Jitsu no Spotify">
+        <img class="play__capa" src="/img/playlist.webp" width="160" height="160"
+             alt="" loading="lazy" decoding="async">
+        <span class="play__txt">
+          <span class="play__nome">Flow Jitsu</span>
+          <span class="play__sub mono">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0m5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02m1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2m.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            <span data-i18n="plSub">w/ Bernardo Mastrangelo</span>
+          </span>
+        </span>
+        <span class="play__go" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        </span>
+      </button>
+    </div>
+
     <a class="lnk" href="https://youtu.be/PjRKPpUq6Zw" target="_blank" rel="noopener"
        data-i18n="btnPodcast">Podcast Pura Connection</a>
     <a class="lnk" href="https://instagram.com/bernardomastrangelo" target="_blank" rel="noopener"
@@ -231,6 +282,7 @@ h1{
 
   var DICT = {
     pt:{
+      plSub:"w/ Bernardo Mastrangelo", plLabel:"Tocar a playlist Flow Jitsu no Spotify",
       title:"Bernardo Mastrangelo, faixa-preta e Campeão Brasileiro IBJJF 2026",
       htmlLang:"pt-BR",
       avatarAlt:"Bernardo Mastrangelo com a medalha do Campeonato Brasileiro de Jiu-Jitsu 2026",
@@ -252,6 +304,7 @@ h1{
       }
     },
     en:{
+      plSub:"w/ Bernardo Mastrangelo", plLabel:"Play the Flow Jitsu playlist on Spotify",
       title:"Bernardo Mastrangelo, black belt and Brazilian National Champion IBJJF 2026",
       htmlLang:"en",
       avatarAlt:"Bernardo Mastrangelo with his 2026 Brazilian National Championship medal",
@@ -273,6 +326,7 @@ h1{
       }
     },
     es:{
+      plSub:"w/ Bernardo Mastrangelo", plLabel:"Reproducir la playlist Flow Jitsu en Spotify",
       title:"Bernardo Mastrangelo, cinturón negro y Campeón Brasileño IBJJF 2026",
       htmlLang:"es",
       avatarAlt:"Bernardo Mastrangelo con la medalla del Campeonato Brasileño de Jiu-Jitsu 2026",
@@ -345,6 +399,18 @@ h1{
 
     try{ localStorage.setItem("bm-lang", lang); }catch(e){}
   }
+
+  /* fachada da playlist: o iframe do Spotify só nasce no clique */
+  var pl = document.getElementById("playlist");
+  if(pl) pl.querySelector(".play__abre").addEventListener("click", function(){
+    var f = document.createElement("iframe");
+    f.src = "https://open.spotify.com/embed/playlist/4OHNSZKhAAEuWNKx4MYS8y?utm_source=generator";
+    f.title = "Flow Jitsu w/ Bernardo Mastrangelo";
+    f.loading = "lazy";
+    f.setAttribute("allow", "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
+    pl.textContent = "";
+    pl.appendChild(f);
+  });
 
   function pick(){
     try{
