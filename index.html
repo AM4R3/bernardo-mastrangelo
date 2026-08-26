@@ -126,14 +126,15 @@ h1{
 .lnk--main:hover::after{opacity:1}
 
 /* ---------- PLAYLIST ----------
-   A capa e o texto são nossos, 3 KB. O player do Spotify pesa mais de
-   um mega, então só entra depois do clique: até lá a página não pede
-   nada pra eles. */
+   Card montado por nós: capa de 3 KB servida daqui, nada do Spotify no
+   load. O link é o open.spotify.com/playlist normal, que é justamente o
+   que o iOS e o Android reconhecem pra abrir o app direto; sem app, cai
+   no player web. */
 .play{width:100%}
 .play__abre{
   width:100%;display:flex;align-items:center;gap:13px;text-align:left;
   padding:9px 12px 9px 9px;border:1px solid var(--linha);background:var(--papel-2);
-  color:inherit;font:inherit;cursor:pointer;
+  color:inherit;
   transition:border-color .25s var(--ease),transform .25s var(--ease);
 }
 .play__abre:hover{border-color:var(--musgo);transform:translateY(-2px)}
@@ -156,7 +157,6 @@ h1{
 }
 .play__abre:hover .play__go{transform:scale(1.08)}
 .play__go svg{width:15px;height:15px;margin-left:2px}
-.play iframe{display:block;width:100%;height:152px;border:0}
 
 .foot{margin-top:clamp(30px,7vw,44px);color:var(--tinta-2);display:flex;flex-direction:column;gap:2px;align-items:center}
 .credito{
@@ -220,8 +220,8 @@ h1{
     <a class="lnk" href="/aula-particular#curriculo" data-i18n="btnAulas">Como são as aulas</a>
     <a class="lnk" href="/aula-particular#autoridade" data-i18n="btnResultados">Resultados de competição</a>
     <div class="play" id="playlist">
-      <button class="play__abre" type="button" data-i18n-aria="plLabel"
-              aria-label="Tocar a playlist Flow Jitsu no Spotify">
+      <a class="play__abre" href="https://open.spotify.com/playlist/4OHNSZKhAAEuWNKx4MYS8y" target="_blank" rel="noopener"
+         data-i18n-aria="plLabel" aria-label="Abrir a playlist Flow Jitsu no Spotify">
         <img class="play__capa" src="/img/playlist.webp" width="160" height="160"
              alt="" loading="lazy" decoding="async">
         <span class="play__txt">
@@ -234,7 +234,7 @@ h1{
         <span class="play__go" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
         </span>
-      </button>
+      </a>
     </div>
 
     <a class="lnk" href="https://youtu.be/PjRKPpUq6Zw" target="_blank" rel="noopener"
@@ -282,7 +282,7 @@ h1{
 
   var DICT = {
     pt:{
-      plSub:"w/ Bernardo Mastrangelo", plLabel:"Tocar a playlist Flow Jitsu no Spotify",
+      plSub:"w/ Bernardo Mastrangelo", plLabel:"Abrir a playlist Flow Jitsu no Spotify",
       title:"Bernardo Mastrangelo, faixa-preta e Campeão Brasileiro IBJJF 2026",
       htmlLang:"pt-BR",
       avatarAlt:"Bernardo Mastrangelo com a medalha do Campeonato Brasileiro de Jiu-Jitsu 2026",
@@ -304,7 +304,7 @@ h1{
       }
     },
     en:{
-      plSub:"w/ Bernardo Mastrangelo", plLabel:"Play the Flow Jitsu playlist on Spotify",
+      plSub:"w/ Bernardo Mastrangelo", plLabel:"Open the Flow Jitsu playlist on Spotify",
       title:"Bernardo Mastrangelo, black belt and Brazilian National Champion IBJJF 2026",
       htmlLang:"en",
       avatarAlt:"Bernardo Mastrangelo with his 2026 Brazilian National Championship medal",
@@ -326,7 +326,7 @@ h1{
       }
     },
     es:{
-      plSub:"w/ Bernardo Mastrangelo", plLabel:"Reproducir la playlist Flow Jitsu en Spotify",
+      plSub:"w/ Bernardo Mastrangelo", plLabel:"Abrir la playlist Flow Jitsu en Spotify",
       title:"Bernardo Mastrangelo, cinturón negro y Campeón Brasileño IBJJF 2026",
       htmlLang:"es",
       avatarAlt:"Bernardo Mastrangelo con la medalla del Campeonato Brasileño de Jiu-Jitsu 2026",
@@ -399,18 +399,6 @@ h1{
 
     try{ localStorage.setItem("bm-lang", lang); }catch(e){}
   }
-
-  /* fachada da playlist: o iframe do Spotify só nasce no clique */
-  var pl = document.getElementById("playlist");
-  if(pl) pl.querySelector(".play__abre").addEventListener("click", function(){
-    var f = document.createElement("iframe");
-    f.src = "https://open.spotify.com/embed/playlist/4OHNSZKhAAEuWNKx4MYS8y?utm_source=generator";
-    f.title = "Flow Jitsu w/ Bernardo Mastrangelo";
-    f.loading = "lazy";
-    f.setAttribute("allow", "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture");
-    pl.textContent = "";
-    pl.appendChild(f);
-  });
 
   function pick(){
     try{
