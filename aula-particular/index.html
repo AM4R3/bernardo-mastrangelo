@@ -177,6 +177,21 @@ section{position:relative}
 /* o clipe vertical fica centrado na coluna */
 .level__media.level__media--alto{max-width:300px;width:100%;margin-left:auto;margin-right:auto}
 
+/* ---------- BIOGRAFIA ----------
+   Linha do tempo: no celular o marco fica acima do texto, no desktop
+   vira coluna. Parágrafo corrido não se lê numa página de anúncio. */
+.bio{padding:clamp(52px,10vw,96px) 0;border-top:1px solid var(--linha)}
+.bio h2{font-size:var(--fs-h2);max-width:15ch;margin-bottom:clamp(18px,3.6vw,24px)}
+.bio__intro{color:var(--tinta-2);font-size:clamp(1rem,3.8vw,1.1rem);line-height:1.65;max-width:54ch;margin-bottom:clamp(30px,5.5vw,44px)}
+.bio__linha{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha);max-width:780px}
+.bio__linha li{display:grid;gap:5px 26px;padding:clamp(15px,2.8vw,19px) 0;border-bottom:1px solid var(--linha)}
+.bio__marco{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--musgo)}
+.bio__texto{font-size:clamp(.95rem,3.5vw,1.02rem);line-height:1.55}
+.bio__texto b{font-weight:500}
+@media (min-width:720px){
+  .bio__linha li{grid-template-columns:132px 1fr;align-items:baseline}
+}
+
 /* ---------- DROP ASSINADO ---------- */
 .drop{padding:0 0 clamp(52px,9vw,84px)}
 .drop__card{
@@ -453,6 +468,24 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
   </div>
 </section>
 
+<!-- ====================== BIOGRAFIA ====================== -->
+<section class="bio" id="historia">
+  <div class="wrap">
+    <p class="mono sec__eyebrow rv" data-i18n="bioEyebrow">A história</p>
+    <h2 class="rv" style="--d:60ms" data-i18n="bioH2">Nasceu dentro do tatame.</h2>
+    <p class="bio__intro rv" style="--d:110ms" data-i18n="bioIntro">Bernardo cresceu cercado por artes marciais. Quando o pai abriu uma turma infantil, ele tinha 9 anos. Começou pelos campeonatos da própria cidade e não parou mais.</p>
+    <ul class="bio__linha rv" style="--d:160ms">
+        <li><span class="bio__marco" data-i18n="bioM1">2003</span><span class="bio__texto" data-i18n-html="bioT1">Nasce em Nova Friburgo, no Rio de Janeiro, numa família de faixas-pretas: o pai, os tios e os amigos de casa.</span></li>
+        <li><span class="bio__marco" data-i18n="bioM2">2012</span><span class="bio__texto" data-i18n-html="bioT2">Aos 9 anos, entra na primeira turma infantil que o pai montou. Em poucos meses já estava competindo.</span></li>
+        <li><span class="bio__marco" data-i18n="bioM3">Infantil</span><span class="bio__texto" data-i18n-html="bioT3">Campeão <b>brasileiro</b> e <b>sul-americano</b> ainda nas categorias de base.</span></li>
+        <li><span class="bio__marco" data-i18n="bioM4">2019</span><span class="bio__texto" data-i18n-html="bioT4">Aos 16 anos, <b>Campeão Mundial Juvenil da IBJJF</b>.</span></li>
+        <li><span class="bio__marco" data-i18n="bioM5">Coloridas</span><span class="bio__texto" data-i18n-html="bioT5">3º no <b>Mundial de faixa roxa</b> e ouro no <b>Brasileiro de faixa marrom</b>.</span></li>
+        <li><span class="bio__marco" data-i18n="bioM6">2023</span><span class="bio__texto" data-i18n-html="bioT6">Aos 20 anos, é graduado à <b>faixa-preta</b> pelo pai, Luiz André Albuquerque.</span></li>
+        <li><span class="bio__marco" data-i18n="bioM7">2026</span><span class="bio__texto" data-i18n-html="bioT7">Primeiro título <b>Brasileiro da IBJJF</b> na faixa-preta. No ADCC Trials, finaliza <b>cinco das sete lutas</b> e termina em terceiro.</span></li>
+    </ul>
+  </div>
+</section>
+
 <!-- ====================== DROP ASSINADO ====================== -->
 <section class="drop" id="colab">
   <div class="wrap">
@@ -668,6 +701,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
 
   var DICT = {
     pt:{
+      bioEyebrow:"A história", bioH2:"Nasceu dentro do tatame.", bioIntro:"Bernardo cresceu cercado por artes marciais. Quando o pai abriu uma turma infantil, ele tinha 9 anos. Começou pelos campeonatos da própria cidade e não parou mais.", bioM1:"2003", bioT1:"Nasce em Nova Friburgo, no Rio de Janeiro, numa família de faixas-pretas: o pai, os tios e os amigos de casa.", bioM2:"2012", bioT2:"Aos 9 anos, entra na primeira turma infantil que o pai montou. Em poucos meses já estava competindo.", bioM3:"Infantil", bioT3:"Campeão <b>brasileiro</b> e <b>sul-americano</b> ainda nas categorias de base.", bioM4:"2019", bioT4:"Aos 16 anos, <b>Campeão Mundial Juvenil da IBJJF</b>.", bioM5:"Coloridas", bioT5:"3º no <b>Mundial de faixa roxa</b> e ouro no <b>Brasileiro de faixa marrom</b>.", bioM6:"2023", bioT6:"Aos 20 anos, é graduado à <b>faixa-preta</b> pelo pai, Luiz André Albuquerque.", bioM7:"2026", bioT7:"Primeiro título <b>Brasileiro da IBJJF</b> na faixa-preta. No ADCC Trials, finaliza <b>cinco das sete lutas</b> e termina em terceiro.",
       lv1Titulo:"Aula iniciante", lv2Titulo:"Aula avançada",
       somLigar:"Ligar o som", somDesligar:"Desligar o som",
       filmeEyebrow:"Em vídeo", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Filme sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo ensinando no tatame", tecnicaAria:"Bernardo Mastrangelo aplicando uma queda no tatame",
@@ -734,6 +768,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     en:{
+      bioEyebrow:"The story", bioH2:"Born on the mat.", bioIntro:"Bernardo grew up surrounded by martial arts. He was 9 when his father opened a kids class. He started at his hometown tournaments and never stopped.", bioM1:"2003", bioT1:"Born in Nova Friburgo, Rio de Janeiro, into a family of black belts: his father, his uncles and the family friends.", bioM2:"2012", bioT2:"At 9, joins the first kids class his father put together. Within months he was competing.", bioM3:"Youth", bioT3:"<b>Brazilian</b> and <b>South American</b> champion in the youth divisions.", bioM4:"2019", bioT4:"At 16, <b>IBJJF Juvenile World Champion</b>.", bioM5:"Colored belts", bioT5:"3rd at the <b>purple belt Worlds</b> and gold at the <b>brown belt Brazilian Nationals</b>.", bioM6:"2023", bioT6:"At 20, promoted to <b>black belt</b> by his father, Luiz André Albuquerque.", bioM7:"2026", bioT7:"First <b>IBJJF Brazilian National</b> title at black belt. At the ADCC Trials, submits <b>five of his seven matches</b> and finishes third.",
       lv1Titulo:"Beginner class", lv2Titulo:"Advanced class",
       somLigar:"Turn sound on", somDesligar:"Turn sound off",
       filmeEyebrow:"On film", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film about Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo teaching on the mat", tecnicaAria:"Bernardo Mastrangelo hitting a takedown on the mat",
@@ -800,6 +835,7 @@ body.has-sticky .foot{padding-bottom:calc(var(--sticky-h) + 24px)}
     },
 
     es:{
+      bioEyebrow:"La historia", bioH2:"Nació dentro del tatami.", bioIntro:"Bernardo creció rodeado de artes marciales. Tenía 9 años cuando su padre abrió una clase infantil. Empezó por los campeonatos de su ciudad y no paró más.", bioM1:"2003", bioT1:"Nace en Nova Friburgo, Río de Janeiro, en una familia de cinturones negros: el padre, los tíos y los amigos de casa.", bioM2:"2012", bioT2:"A los 9 años entra en la primera clase infantil que armó su padre. En pocos meses ya competía.", bioM3:"Infantil", bioT3:"Campeón <b>brasileño</b> y <b>sudamericano</b> en las categorías de base.", bioM4:"2019", bioT4:"A los 16 años, <b>Campeón Mundial Juvenil de la IBJJF</b>.", bioM5:"Colores", bioT5:"3º en el <b>Mundial de cinturón violeta</b> y oro en el <b>Brasileño de cinturón marrón</b>.", bioM6:"2023", bioT6:"A los 20 años, su padre, Luiz André Albuquerque, lo gradúa a <b>cinturón negro</b>.", bioM7:"2026", bioT7:"Primer título <b>Brasileño de la IBJJF</b> en cinturón negro. En el ADCC Trials finaliza <b>cinco de sus siete luchas</b> y termina tercero.",
       lv1Titulo:"Clase inicial", lv2Titulo:"Clase avanzada",
       somLigar:"Activar el sonido", somDesligar:"Silenciar",
       filmeEyebrow:"En video", filmeCap:"Rasta Hale · Pitbull State of Mind · 1min34", filmeAria:"Film sobre Bernardo Mastrangelo", aulaAria:"Bernardo Mastrangelo enseñando en el tatami", tecnicaAria:"Bernardo Mastrangelo aplicando un derribo en el tatami",
